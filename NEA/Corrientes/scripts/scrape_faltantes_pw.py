@@ -15,7 +15,7 @@ import pandas as pd
 from scrape_categorias import rubro_de, sheet_name
 from scraper_playwright import scrape_playwright
 
-FULL = "../excels/corrientes_full.xlsx"
+FULL = "../excels/Corrientes_full.xlsx"
 OUTDIR = "../excels"
 
 

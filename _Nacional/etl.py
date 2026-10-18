@@ -35,7 +35,10 @@ NACIONALES_CSV = os.path.join(os.path.dirname(__file__), "cadenas_nacionales.csv
 
 def cargar_provincias():
     from relevar_provincia import PROVINCIAS
-    return {k: (v[0], v[1]) for k, v in PROVINCIAS.items()}
+    provs = {k: (v[0], v[1]) for k, v in PROVINCIAS.items()}
+    # Corrientes se relevó con scripts propios y no está en PROVINCIAS
+    provs.setdefault("Corrientes", ("Corrientes", "NEA"))
+    return provs
 
 
 def cargar_nacionales():
@@ -119,7 +122,9 @@ def correr_provincia(folder, rubro_filtro="", limite=0, skip_nacional=True, exce
     nacionales = cargar_nacionales() if skip_nacional else {}
     print(f"\n#### {display} ({region}) - {full_xlsx}", flush=True)
 
-    df = pd.read_excel(full_xlsx, sheet_name="Tiendas con web").fillna("")
+    hojas = pd.ExcelFile(full_xlsx).sheet_names
+    hoja = "Tiendas con web" if "Tiendas con web" in hojas else hojas[0]
+    df = pd.read_excel(full_xlsx, sheet_name=hoja).fillna("")
     df = df[df["Tienda online"].astype(str).str.contains("Si|Probable", case=False, na=False)]
     df["rubro"] = df["Sector"].map(rubro_de)
     df["dom"] = df["URL"].map(dominio)

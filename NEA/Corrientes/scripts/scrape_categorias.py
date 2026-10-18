@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Scrapea precios de TODOS los comercios de corrientes_full.xlsx (menos super/mayoristas
+Scrapea precios de TODOS los comercios de Corrientes_full.xlsx (menos super/mayoristas
 ya hechos), auto-detectando la plataforma (Shopify / VTEX / Tiendanube / WooCommerce).
 Genera UN EXCEL POR RUBRO, con UNA HOJA POR LOCAL.
 Columnas: SKU, Nombre, Precio, Fecha, Categoria.
@@ -27,7 +27,7 @@ H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36", "Accept": "*/*"}
 _S = requests.Session()
 _S.mount("https://", requests.adapters.HTTPAdapter(pool_connections=20, pool_maxsize=20, max_retries=2))
-FULL = "../excels/corrientes_full.xlsx"
+FULL = "../excels/Corrientes_full.xlsx"
 OUTDIR = "../excels"
 
 

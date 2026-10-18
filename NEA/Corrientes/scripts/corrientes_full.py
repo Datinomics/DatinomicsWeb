@@ -3,7 +3,7 @@
 Corrientes capital - TODOS los rubros. Retailers con TIENDA ONLINE PROPIA (precios).
 Metodo: lista curada verificada + descubrimiento por rubro, con filtro estricto:
 debe correr sobre plataforma e-commerce real Y mencionar Corrientes en la pagina.
--> corrientes_full.xlsx
+-> Corrientes_full.xlsx
 """
 import concurrent.futures as cf
 import html as _html
@@ -188,9 +188,9 @@ def cargar_base():
     """Carga el Excel previo para acumular (no perder lo ya confirmado)."""
     import os
     base = {}
-    if os.path.exists("corrientes_full.xlsx"):
+    if os.path.exists("Corrientes_full.xlsx"):
         try:
-            prev = pd.read_excel("corrientes_full.xlsx", sheet_name="Corrientes tienda propia").fillna("")
+            prev = pd.read_excel("Corrientes_full.xlsx", sheet_name="Corrientes tienda propia").fillna("")
             for _, r in prev.iterrows():
                 base[dominio(str(r["URL"]))] = r.to_dict()
         except Exception as e:
@@ -242,12 +242,12 @@ def main():
     # Candidatos: descubiertos con plataforma pero sin mencion clara de Corrientes
     revisar = df[(~curado) & activo & plat & ~ctes][cols].sort_values(["Sector", "Empresa"])
 
-    salida = "corrientes_full.xlsx"
+    salida = "Corrientes_full.xlsx"
     try:
         open(salida, "ab").close()
     except PermissionError:
         salida = "corrientes_full_actualizado.xlsx"
-        print(f"  (corrientes_full.xlsx abierto en Excel; guardo en {salida})", flush=True)
+        print(f"  (Corrientes_full.xlsx abierto en Excel; guardo en {salida})", flush=True)
     with pd.ExcelWriter(salida, engine="openpyxl") as xl:
         principal.to_excel(xl, sheet_name="Corrientes tienda propia", index=False)
         revisar.to_excel(xl, sheet_name="Candidatos (revisar)", index=False)
