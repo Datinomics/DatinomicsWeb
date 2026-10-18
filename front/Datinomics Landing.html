@@ -1,0 +1,1579 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Datinomics — Todos los precios de la economía, en un solo lugar.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --violet-950: oklch(0.18 0.10 290);
+    --violet-900: oklch(0.26 0.13 290);
+    --violet-800: oklch(0.34 0.16 290);
+    --violet-700: oklch(0.42 0.18 290);
+    --violet-500: oklch(0.58 0.20 290);
+    --violet-300: oklch(0.78 0.12 290);
+    --violet-100: oklch(0.94 0.04 290);
+    --violet-50:  oklch(0.975 0.018 290);
+    --amber:      oklch(0.78 0.16 70);
+    --red:        oklch(0.62 0.20 25);
+    --green:      oklch(0.62 0.14 150);
+    --ink:        oklch(0.18 0.015 280);
+    --ink-2:      oklch(0.36 0.012 280);
+    --ink-3:      oklch(0.58 0.010 280);
+    --paper:      #ffffff;
+    --paper-2:    oklch(0.985 0.004 280);
+    --line:       oklch(0.92 0.008 280);
+    --line-2:     oklch(0.86 0.012 280);
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0}
+  html{ scroll-behavior: smooth; }
+  body{
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.5;
+  }
+  a{ color: inherit; text-decoration: none; }
+  img,svg{ display:block; max-width: 100%; }
+
+  /* ── typography utilities ── */
+  .display{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1;
+  }
+  .h2{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: clamp(34px, 4vw, 52px);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+  .h3{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: -0.012em;
+    line-height: 1.2;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--violet-700);
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; font-feature-settings: 'tnum' 1; }
+  .lead{ font-size: 19px; color: var(--ink-2); line-height: 1.55; }
+
+  /* ── layout shells ── */
+  .wrap{ max-width: 1240px; margin: 0 auto; padding: 0 32px; }
+  section{ padding: 110px 0; }
+  section.tight{ padding: 70px 0; }
+
+  /* ── wordmark ── */
+  .wm{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .wm .pt{ color: var(--violet-700); }
+  .lockup{ display:inline-flex; align-items:center; gap: 10px; }
+  .lockup .wm{ font-size: 22px; }
+
+  /* ── buttons ── */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap: 8px;
+    height: 46px; padding: 0 22px;
+    border-radius: 10px;
+    font-family:'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all .15s ease;
+    white-space: nowrap;
+  }
+  .btn.primary{ background: var(--violet-700); color: white; }
+  .btn.primary:hover{ background: var(--violet-800); }
+  .btn.ghost{ background: transparent; color: var(--ink); border-color: var(--line-2); }
+  .btn.ghost:hover{ background: var(--paper-2); }
+  .btn.link{
+    background: transparent; padding: 0; height: auto;
+    color: var(--violet-700); border: none;
+  }
+  .btn.link::after{ content: '→'; margin-left: 4px; transition: transform .15s ease; }
+  .btn.link:hover::after{ transform: translateX(3px); }
+  .btn.lg{ height: 52px; padding: 0 28px; font-size: 16px; }
+
+  /* ───────── NAV ───────── */
+  .nav{
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(255,255,255,.78);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .row{
+    display:flex; align-items:center; justify-content:space-between;
+    height: 72px;
+  }
+  .nav .links{ display:flex; gap: 28px; align-items:center; }
+  .nav .links a{
+    font-size: 14px; color: var(--ink-2);
+    font-weight: 500;
+    transition: color .15s ease;
+  }
+  .nav .links a:hover{ color: var(--ink); }
+  .nav .actions{ display:flex; align-items:center; gap: 14px; }
+  .nav .actions .signin{
+    font-size: 14px; color: var(--ink-2); font-weight: 500;
+  }
+  @media (max-width: 820px){
+    .nav .links{ display:none; }
+  }
+
+  /* ───────── HERO ───────── */
+  .hero{
+    padding: 80px 0 60px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--violet-50) 0%, var(--paper) 90%);
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 600px 400px at 75% 20%, oklch(0.85 0.12 290 / 0.35), transparent 60%);
+    pointer-events: none;
+  }
+  .hero .grid{
+    position: relative;
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  @media (max-width: 980px){
+    .hero .grid{ grid-template-columns: 1fr; gap: 40px; }
+  }
+  .hero h1{
+    font-size: clamp(46px, 6vw, 78px);
+    margin-top: 22px;
+    color: var(--ink);
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--violet-700);
+    position: relative;
+  }
+  .hero h1 em::after{
+    content:'.';
+    color: var(--amber);
+  }
+  .hero .lead{
+    margin-top: 22px;
+    max-width: 540px;
+  }
+  .hero .cta-row{
+    margin-top: 36px;
+    display:flex; gap: 12px; flex-wrap: wrap;
+  }
+  .hero .by{
+    margin-top: 40px;
+    display:flex; align-items:center; gap: 14px;
+    font-size: 13px; color: var(--ink-3);
+  }
+  .hero .by .divider{ width: 32px; height: 1px; background: var(--line-2); }
+
+  /* live pulse */
+  .pulse{
+    display:inline-flex; align-items:center; gap: 8px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .pulse .dot{
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 0 rgba(229, 62, 62, .6);
+    animation: pulse 1.6s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{ box-shadow: 0 0 0 0 oklch(0.62 0.20 25 / .55); }
+    70%{ box-shadow: 0 0 0 10px oklch(0.62 0.20 25 / 0); }
+    100%{ box-shadow: 0 0 0 0 oklch(0.62 0.20 25 / 0); }
+  }
+
+  /* ── HERO: explorer preview card ── */
+  .preview{
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    box-shadow:
+      0 1px 0 rgba(0,0,0,.02),
+      0 24px 60px -20px oklch(0.42 0.18 290 / .25),
+      0 6px 20px -10px oklch(0.42 0.18 290 / .18);
+    overflow: hidden;
+    position: relative;
+  }
+  .preview .top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .preview .top .lt{
+    display:flex; align-items:center; gap: 8px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.05em;
+  }
+  .preview .top .dots{ display:flex; gap: 5px; }
+  .preview .top .dots span{
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--line-2);
+  }
+  .preview .body{
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .stat{
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .stat .lbl{
+    font-size: 11px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 6px;
+    font-family:'JetBrains Mono', monospace;
+  }
+  .stat .val{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .stat .delta{
+    margin-top: 4px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--red);
+  }
+  .stat .delta.green{ color: var(--green); }
+  .preview .chart{
+    grid-column: span 2;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px;
+  }
+  .preview .chart-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom: 14px;
+  }
+  .preview .chart-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  .preview .chart-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── TICKER ── */
+  .ticker{
+    border-block: 1px solid var(--line);
+    background: white;
+    padding: 16px 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .ticker::before, .ticker::after{
+    content:''; position:absolute; top:0; bottom:0; width: 80px;
+    z-index: 2; pointer-events: none;
+  }
+  .ticker::before{ left:0; background: linear-gradient(90deg, white, transparent); }
+  .ticker::after{ right:0; background: linear-gradient(-90deg, white, transparent); }
+  .ticker-track{
+    display:flex; gap: 48px;
+    width: max-content;
+    animation: scroll 60s linear infinite;
+  }
+  .ticker-item{
+    display:flex; align-items:center; gap: 10px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+  .ticker-item .cat{ color: var(--ink); font-weight: 500; }
+  .ticker-item .pct{ font-weight: 600; }
+  .ticker-item .pct.up{ color: var(--red); }
+  .ticker-item .pct.down{ color: var(--green); }
+  .ticker-item .arr{ font-size: 10px; }
+  .ticker-item + .ticker-item::before{
+    content:''; width: 4px; height: 4px; border-radius: 50%;
+    background: var(--line-2); margin-right: 4px;
+  }
+  @keyframes scroll{
+    from{ transform: translateX(0); }
+    to{ transform: translateX(-50%); }
+  }
+
+  /* ───────── METRICS / TRUST ───────── */
+  .metrics{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: white;
+  }
+  .metrics .cell{
+    padding: 36px 32px;
+    border-right: 1px solid var(--line);
+  }
+  .metrics .cell:last-child{ border-right: none; }
+  .metrics .cell .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    margin-bottom: 12px;
+  }
+  .metrics .cell .val{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 44px;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .metrics .cell .sub{
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--ink-3);
+  }
+  @media (max-width: 820px){
+    .metrics{ grid-template-columns: repeat(2, 1fr); }
+    .metrics .cell{ border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .metrics .cell:nth-child(2n){ border-right: none; }
+    .metrics .cell:nth-last-child(-n+2){ border-bottom: none; }
+  }
+
+  /* ───────── SECTION INTRO ───────── */
+  .sec-intro{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 56px;
+  }
+  .sec-intro .right{
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 460px;
+    justify-self: end;
+  }
+  @media (max-width: 820px){
+    .sec-intro{ grid-template-columns: 1fr; gap: 16px; }
+    .sec-intro .right{ justify-self: start; }
+  }
+
+  /* ───────── 3-COL FEATURES ───────── */
+  .features{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 900px){ .features{ grid-template-columns: 1fr; } }
+  .feat{
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 32px;
+    display:flex; flex-direction: column;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+  }
+  .feat .ic{
+    width: 44px; height: 44px;
+    background: var(--violet-100);
+    color: var(--violet-700);
+    border-radius: 10px;
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 22px;
+  }
+  .feat h3{ margin-bottom: 10px; }
+  .feat p{ color: var(--ink-2); font-size: 15px; line-height: 1.55; }
+  .feat .demo{
+    margin-top: auto;
+    padding-top: 24px;
+  }
+
+  /* mini chart demo (in feature card) */
+  .mini-chart{
+    background: var(--paper-2);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--line);
+  }
+  .mini-chart .row{
+    display:flex; align-items:center; gap:10px;
+    padding: 4px 0;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .mini-chart .row .nm{ flex: 0 0 100px; color: var(--ink-2); }
+  .mini-chart .row .bar{
+    flex: 1; height: 5px; border-radius: 99px;
+    background: var(--line);
+    overflow: hidden;
+    position: relative;
+  }
+  .mini-chart .row .bar i{
+    display:block; height: 100%;
+    background: linear-gradient(90deg, var(--violet-500), var(--violet-700));
+    border-radius: 99px;
+  }
+  .mini-chart .row .val{ flex: 0 0 52px; text-align: right; color: var(--ink); font-weight: 600; }
+
+  /* code demo */
+  .code{
+    background: var(--violet-950);
+    border-radius: 10px;
+    padding: 16px 18px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px;
+    line-height: 1.6;
+    color: oklch(0.88 0.04 290);
+  }
+  .code .k{ color: oklch(0.82 0.14 70); }   /* keyword: amber */
+  .code .s{ color: oklch(0.82 0.10 150); }  /* string */
+  .code .c{ color: oklch(0.55 0.04 280); }  /* comment */
+  .code .p{ color: oklch(0.78 0.10 290); }  /* punctuation */
+  .code .v{ color: white; }                  /* variable */
+
+  /* alert demo */
+  .alert-demo{
+    background: var(--paper-2);
+    border-radius: 10px;
+    padding: 14px;
+    border: 1px solid var(--line);
+    display:flex; flex-direction:column; gap: 10px;
+  }
+  .alert-row{
+    display:flex; align-items:center; gap:10px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  .alert-row .ic-sm{
+    width: 22px; height: 22px; flex:none;
+    border-radius: 6px;
+    display:flex; align-items:center; justify-content:center;
+    background: oklch(0.94 0.06 25);
+    color: var(--red);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px; font-weight: 600;
+  }
+  .alert-row .ic-sm.amb{ background: oklch(0.94 0.08 70); color: oklch(0.50 0.16 70); }
+  .alert-row .nm-sm{ flex: 1; color: var(--ink); font-weight: 500; }
+  .alert-row .pct-sm{ font-family:'JetBrains Mono', monospace; color: var(--red); font-weight: 600; }
+
+  /* ───────── DASHBOARD PREVIEW (big) ───────── */
+  .dash{
+    background: linear-gradient(180deg, var(--violet-50), var(--paper));
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+  }
+  .dash-inner{
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    min-height: 480px;
+  }
+  .dash-side{
+    background: var(--violet-50);
+    border-right: 1px solid var(--line);
+    padding: 22px 16px;
+  }
+  .dash-side .head{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    margin: 18px 8px 8px;
+  }
+  .dash-side .nav-i{
+    display:flex; align-items:center; gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    font-size: 13px;
+    color: var(--ink-2);
+    margin-bottom: 2px;
+  }
+  .dash-side .nav-i.active{ background: white; color: var(--violet-700); font-weight: 600; box-shadow: 0 1px 2px rgba(0,0,0,.03); }
+  .dash-side .nav-i svg{ flex:none; }
+  .dash-main{ padding: 22px; }
+  .dash-main .toolbar{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom: 16px;
+  }
+  .dash-main h4{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .dash-main .pill-row{
+    display:flex; gap: 8px;
+  }
+  .dash-main .pill{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 99px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    color: var(--ink-2);
+  }
+  .dash-main .pill.active{ background: var(--violet-700); color: white; border-color: var(--violet-700); }
+  .dash-main .kpis{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin-bottom: 16px;
+  }
+  .dash-main .kpi{
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .dash-main .kpi .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--ink-3);
+    text-transform: uppercase; letter-spacing: 0.08em;
+    margin-bottom: 4px;
+  }
+  .dash-main .kpi .v{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 22px; font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .dash-main .kpi .d{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--red);
+  }
+  .dash-main .big-chart{
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    height: 220px;
+    position: relative;
+    overflow: hidden;
+  }
+  .dash-main .big-chart .ch-head{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom: 10px;
+  }
+  .dash-main .big-chart .ch-title{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 13px; font-weight: 600;
+  }
+  .dash-main .big-chart .ch-meta{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--ink-3);
+  }
+  @media (max-width: 820px){
+    .dash-inner{ grid-template-columns: 1fr; }
+    .dash-side{ display:none; }
+    .dash-main .kpis{ grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ───────── COBERTURA grid ───────── */
+  .cobertura{
+    background: var(--violet-50);
+  }
+  .rubros{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px){ .rubros{ grid-template-columns: repeat(2, 1fr); } }
+  .rubro{
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+    display:flex; flex-direction: column; gap: 10px;
+    transition: all .2s ease;
+  }
+  .rubro:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px -8px oklch(0.42 0.18 290 / .15);
+    border-color: var(--violet-300);
+  }
+  .rubro .nm{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .rubro .pct{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--red);
+    font-weight: 600;
+  }
+  .rubro .sparkline{
+    height: 28px;
+    margin-top: 6px;
+  }
+  .rubro .footer-r{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* ───────── API SECTION ───────── */
+  .api{
+    background: var(--violet-950);
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .api::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 700px 500px at 80% 30%, oklch(0.45 0.20 290 / 0.35), transparent 60%),
+      radial-gradient(ellipse 500px 300px at 10% 80%, oklch(0.55 0.18 290 / 0.20), transparent 60%);
+    pointer-events: none;
+  }
+  .api .wrap{ position: relative; }
+  .api .grid{
+    display:grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  @media (max-width: 980px){ .api .grid{ grid-template-columns: 1fr; gap: 40px; } }
+  .api .eyebrow{ color: var(--violet-300); }
+  .api h2{ color: white; margin-top: 14px; }
+  .api .lead{ color: oklch(0.84 0.04 290); margin-top: 18px; max-width: 460px; }
+  .api .features-inline{
+    margin-top: 28px;
+    display: flex; flex-direction: column; gap: 14px;
+  }
+  .api .fi{
+    display:flex; gap: 14px; align-items: flex-start;
+    color: oklch(0.84 0.04 290);
+    font-size: 15px;
+  }
+  .api .fi .check{
+    flex: none;
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--violet-700);
+    color: white;
+    display:flex; align-items:center; justify-content:center;
+    margin-top: 2px;
+  }
+  .api .fi b{ color: white; font-weight: 600; }
+
+  .codeblock{
+    background: oklch(0.12 0.06 290);
+    border: 1px solid oklch(0.30 0.10 290);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+  .codeblock .head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 12px 18px;
+    background: oklch(0.18 0.08 290);
+    border-bottom: 1px solid oklch(0.30 0.10 290);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--violet-300);
+    letter-spacing: 0.06em;
+  }
+  .codeblock .head .lang{
+    background: oklch(0.30 0.10 290);
+    color: white;
+    padding: 3px 10px;
+    border-radius: 99px;
+    text-transform: uppercase;
+    font-size: 10px;
+  }
+  .codeblock pre{
+    padding: 22px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    color: oklch(0.88 0.04 290);
+    overflow-x: auto;
+    margin: 0;
+  }
+  .codeblock pre .k{ color: oklch(0.82 0.14 70); }
+  .codeblock pre .s{ color: oklch(0.78 0.14 150); }
+  .codeblock pre .c{ color: oklch(0.55 0.04 280); font-style: italic; }
+  .codeblock pre .v{ color: white; }
+  .codeblock pre .n{ color: oklch(0.80 0.14 70); }
+  .codeblock pre .key{ color: oklch(0.82 0.10 290); }
+
+  /* ───────── CASOS DE USO ───────── */
+  .casos{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px){ .casos{ grid-template-columns: repeat(2, 1fr); } }
+  .caso{
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px;
+    display:flex; flex-direction: column; gap: 14px;
+  }
+  .caso .top-i{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--violet-700);
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
+  .caso .nm{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+  }
+  .caso p{ color: var(--ink-2); font-size: 14px; line-height: 1.55; }
+  .caso ul{
+    list-style: none;
+    margin-top: auto;
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .caso ul li{
+    font-size: 13px;
+    color: var(--ink-2);
+    padding-left: 18px;
+    position: relative;
+  }
+  .caso ul li::before{
+    content:''; position: absolute; left: 0; top: 9px;
+    width: 8px; height: 1px;
+    background: var(--violet-700);
+  }
+
+  /* ───────── TESTIMONIAL ───────── */
+  .quote{
+    background: var(--paper-2);
+    border-radius: 20px;
+    padding: 64px 56px;
+    position: relative;
+  }
+  .quote::before{
+    content:'"';
+    position:absolute; top: 24px; left: 56px;
+    font-family:'Space Grotesk', sans-serif;
+    font-size: 120px;
+    line-height: 1;
+    color: var(--violet-300);
+  }
+  .quote .text{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.3;
+    letter-spacing: -0.012em;
+    color: var(--ink);
+    position: relative;
+    max-width: 800px;
+  }
+  .quote .author{
+    margin-top: 32px;
+    display:flex; align-items: center; gap: 14px;
+  }
+  .quote .avatar{
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--violet-500), var(--violet-800));
+    display:flex; align-items:center; justify-content:center;
+    color: white;
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .quote .who .nm{
+    font-weight: 600;
+    font-size: 15px;
+  }
+  .quote .who .role{
+    color: var(--ink-3);
+    font-size: 13px;
+  }
+
+  /* ───────── CTA FINAL ───────── */
+  .cta-final{
+    background: var(--violet-950);
+    color: white;
+    border-radius: 24px;
+    padding: 80px 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-final::before{
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 800px 500px at 50% 0%, oklch(0.50 0.20 290 / 0.45), transparent 60%);
+    pointer-events: none;
+  }
+  .cta-final > *{ position: relative; }
+  .cta-final h2{ color: white; max-width: 780px; margin: 0 auto; }
+  .cta-final .lead{ color: oklch(0.84 0.04 290); max-width: 600px; margin: 22px auto 0; }
+  .cta-final .ctas{
+    margin-top: 36px;
+    display:flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .cta-final .btn.ghost{
+    background: transparent;
+    color: white;
+    border-color: oklch(0.40 0.10 290);
+  }
+  .cta-final .btn.ghost:hover{
+    background: oklch(0.30 0.10 290);
+  }
+
+  /* ───────── FOOTER ───────── */
+  footer.site{
+    background: var(--paper-2);
+    padding: 64px 0 32px;
+    border-top: 1px solid var(--line);
+  }
+  footer.site .cols{
+    display:grid;
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+    gap: 40px;
+    margin-bottom: 48px;
+  }
+  @media (max-width: 820px){
+    footer.site .cols{ grid-template-columns: 1fr 1fr; }
+  }
+  footer.site .col h5{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    color: var(--ink-3);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  footer.site .col a{
+    display:block;
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-bottom: 8px;
+    transition: color .15s ease;
+  }
+  footer.site .col a:hover{ color: var(--ink); }
+  footer.site .brand-col p{
+    font-size: 14px;
+    color: var(--ink-2);
+    margin-top: 14px;
+    max-width: 280px;
+    line-height: 1.5;
+  }
+  footer.site .bot{
+    display:flex; justify-content: space-between; align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  footer.site .bera{
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+  footer.site .bera b{ color: var(--ink); font-weight: 700; letter-spacing: 0.04em; }
+
+</style>
+</head>
+<body>
+
+<!-- ───────── Inline SVG logo helper (Pulse mark) ───────── -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="logo" viewBox="0 0 120 120">
+      <rect x="6" y="50" width="10" height="20" rx="5" fill="oklch(0.78 0.12 290)"/>
+      <rect x="22" y="38" width="10" height="44" rx="5" fill="oklch(0.62 0.18 290)"/>
+      <rect x="38" y="22" width="10" height="76" rx="5" fill="oklch(0.48 0.20 290)"/>
+      <rect x="54" y="8" width="12" height="104" rx="6" fill="oklch(0.36 0.18 290)"/>
+      <rect x="72" y="22" width="10" height="76" rx="5" fill="oklch(0.48 0.20 290)"/>
+      <rect x="88" y="38" width="10" height="44" rx="5" fill="oklch(0.62 0.18 290)"/>
+      <rect x="104" y="50" width="10" height="20" rx="5" fill="oklch(0.78 0.12 290)"/>
+      <circle cx="60" cy="8" r="6" fill="oklch(0.78 0.16 70)"/>
+    </symbol>
+    <symbol id="logo-white" viewBox="0 0 120 120">
+      <g fill="white">
+        <rect x="6" y="50" width="10" height="20" rx="5" opacity=".55"/>
+        <rect x="22" y="38" width="10" height="44" rx="5" opacity=".70"/>
+        <rect x="38" y="22" width="10" height="76" rx="5" opacity=".85"/>
+        <rect x="54" y="8" width="12" height="104" rx="6"/>
+        <rect x="72" y="22" width="10" height="76" rx="5" opacity=".85"/>
+        <rect x="88" y="38" width="10" height="44" rx="5" opacity=".70"/>
+        <rect x="104" y="50" width="10" height="20" rx="5" opacity=".55"/>
+      </g>
+      <circle cx="60" cy="8" r="6" fill="oklch(0.78 0.16 70)"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ───────── NAV ───────── -->
+<nav class="nav">
+  <div class="wrap row">
+    <a href="#" class="lockup" aria-label="Datinomics">
+      <svg width="26" height="26" viewBox="0 0 120 120"><use href="#logo"/></svg>
+      <span class="wm">Datinomics<span class="pt">.</span></span>
+    </a>
+    <div class="links">
+      <a href="#producto">Producto</a>
+      <a href="#cobertura">Cobertura</a>
+      <a href="#api">API</a>
+      <a href="#casos">Casos de uso</a>
+      <a href="#">Precios</a>
+    </div>
+    <div class="actions">
+      <a href="#" class="signin">Iniciar sesión</a>
+      <a href="#" class="btn primary">Solicitar acceso</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ───────── HERO ───────── -->
+<header class="hero">
+  <div class="wrap grid">
+    <div>
+      <span class="pulse"><span class="dot"></span> En vivo · IPC sectorial actualizado</span>
+      <h1 class="display">Todos los precios de la economía<em>,</em><br/>en un solo lugar.</h1>
+      <p class="lead">Datinomics releva en tiempo real los precios de cientos de empresas argentinas — por rubro, región y SKU — y te entrega series limpias, alertas y una API lista para producción.</p>
+      <div class="cta-row">
+        <a href="#" class="btn primary lg">Solicitar acceso</a>
+        <a href="#producto" class="btn ghost lg">Ver el explorador →</a>
+      </div>
+      <div class="by">
+        <span class="mono">Un producto de</span>
+        <span class="divider"></span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; letter-spacing: 0.04em; color: var(--ink);">BERÁ</span>
+      </div>
+    </div>
+
+    <!-- explorer preview -->
+    <div class="preview" aria-hidden="true">
+      <div class="top">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <div class="lt">datinomics.com/app/explorador</div>
+        <div class="lt mono" style="font-size:10px">▲ EN VIVO</div>
+      </div>
+      <div class="body">
+        <div class="stat">
+          <div class="lbl">Empresas</div>
+          <div class="val mono">23</div>
+          <div class="delta green">+2 esta semana</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">SKUs relevados</div>
+          <div class="val mono">141</div>
+          <div class="delta green">+18 este mes</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Var. mensual</div>
+          <div class="val mono">+2.3%</div>
+          <div class="delta">▲ vs. abril</div>
+        </div>
+        <div class="stat">
+          <div class="lbl">Var. interanual</div>
+          <div class="val mono">+45.3%</div>
+          <div class="delta">▲ jun '25 → may '26</div>
+        </div>
+
+        <div class="chart">
+          <div class="chart-head">
+            <span class="chart-title">Índice general · base 100</span>
+            <span class="chart-meta mono">jun '25 → may '26</span>
+          </div>
+          <!-- inline area chart svg -->
+          <svg viewBox="0 0 480 120" preserveAspectRatio="none" style="width:100%; height: 130px;">
+            <defs>
+              <linearGradient id="areaG" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="oklch(0.58 0.20 290)" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="oklch(0.58 0.20 290)" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- gridlines -->
+            <g stroke="oklch(0.92 0.008 280)" stroke-width="1">
+              <line x1="0" y1="30" x2="480" y2="30"/>
+              <line x1="0" y1="60" x2="480" y2="60"/>
+              <line x1="0" y1="90" x2="480" y2="90"/>
+            </g>
+            <!-- area -->
+            <path d="M0,98 L40,92 L80,86 L120,76 L160,72 L200,60 L240,52 L280,46 L320,38 L360,34 L400,26 L440,18 L480,12 L480,120 L0,120 Z"
+                  fill="url(#areaG)"/>
+            <!-- line -->
+            <path d="M0,98 L40,92 L80,86 L120,76 L160,72 L200,60 L240,52 L280,46 L320,38 L360,34 L400,26 L440,18 L480,12"
+                  fill="none" stroke="oklch(0.42 0.18 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <!-- end dot -->
+            <circle cx="480" cy="12" r="5" fill="oklch(0.78 0.16 70)" stroke="white" stroke-width="2"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ───────── LIVE TICKER ───────── -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <!-- duplicated for infinite scroll -->
+    <span class="ticker-item"><span class="cat">Indumentaria</span> <span class="pct up">+3.4% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Tecnología</span> <span class="pct up">+2.0% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Construcción</span> <span class="pct up">+1.7% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Servicios</span> <span class="pct up">+2.3% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Salud</span> <span class="pct up">+3.8% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Alimentos</span> <span class="pct up">+2.6% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Combustibles</span> <span class="pct down">−0.4% <span class="arr">▼</span></span></span>
+    <span class="ticker-item"><span class="cat">Educación</span> <span class="pct up">+1.9% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Turismo</span> <span class="pct up">+4.1% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Transporte</span> <span class="pct up">+2.8% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Esparcimiento</span> <span class="pct up">+1.2% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Hogar</span> <span class="pct up">+2.1% <span class="arr">▲</span></span></span>
+    <!-- repeat -->
+    <span class="ticker-item"><span class="cat">Indumentaria</span> <span class="pct up">+3.4% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Tecnología</span> <span class="pct up">+2.0% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Construcción</span> <span class="pct up">+1.7% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Servicios</span> <span class="pct up">+2.3% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Salud</span> <span class="pct up">+3.8% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Alimentos</span> <span class="pct up">+2.6% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Combustibles</span> <span class="pct down">−0.4% <span class="arr">▼</span></span></span>
+    <span class="ticker-item"><span class="cat">Educación</span> <span class="pct up">+1.9% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Turismo</span> <span class="pct up">+4.1% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Transporte</span> <span class="pct up">+2.8% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Esparcimiento</span> <span class="pct up">+1.2% <span class="arr">▲</span></span></span>
+    <span class="ticker-item"><span class="cat">Hogar</span> <span class="pct up">+2.1% <span class="arr">▲</span></span></span>
+  </div>
+</div>
+
+<!-- ───────── METRICS ROW ───────── -->
+<section class="tight">
+  <div class="wrap">
+    <div class="metrics">
+      <div class="cell">
+        <div class="lbl">Empresas relevadas</div>
+        <div class="val mono">2,400+</div>
+        <div class="sub">desde retail hasta industria pesada</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">SKUs en monitoreo</div>
+        <div class="val mono">180k</div>
+        <div class="sub">actualización diaria</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Series históricas</div>
+        <div class="val mono">12 años</div>
+        <div class="sub">limpias y normalizadas</div>
+      </div>
+      <div class="cell">
+        <div class="lbl">Cobertura geográfica</div>
+        <div class="val mono">24/24</div>
+        <div class="sub">provincias argentinas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PRODUCTO / FEATURES ───────── -->
+<section id="producto">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div>
+        <span class="eyebrow">Producto</span>
+        <h2 class="h2" style="margin-top: 12px;">Una plataforma, tres capas.</h2>
+      </div>
+      <p class="right">El explorador para entender el mercado, las alertas para reaccionar a tiempo y la API para llevarte la data a tu propio stack.</p>
+    </div>
+
+    <div class="features">
+      <!-- Feat 1 -->
+      <div class="feat">
+        <div class="ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+        </div>
+        <h3 class="h3">Explorador de precios</h3>
+        <p>Buscá cualquier empresa o rubro. Comparalo contra el índice general, filtrá por región y exportá la serie limpia.</p>
+        <div class="demo">
+          <div class="mini-chart">
+            <div class="row"><span class="nm">Indumentaria</span><span class="bar"><i style="width: 88%"></i></span><span class="val">+47%</span></div>
+            <div class="row"><span class="nm">Construcción</span><span class="bar"><i style="width: 86%"></i></span><span class="val">+46%</span></div>
+            <div class="row"><span class="nm">Alimentos</span><span class="bar"><i style="width: 84%"></i></span><span class="val">+44%</span></div>
+            <div class="row"><span class="nm">Tecnología</span><span class="bar"><i style="width: 78%"></i></span><span class="val">+39%</span></div>
+            <div class="row"><span class="nm">Salud</span><span class="bar"><i style="width: 72%"></i></span><span class="val">+36%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feat 2 -->
+      <div class="feat">
+        <div class="ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 8a6 6 0 1 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9"/><path d="M10 21a2 2 0 0 0 4 0"/>
+          </svg>
+        </div>
+        <h3 class="h3">Alertas inteligentes</h3>
+        <p>Definí umbrales por rubro o empresa y recibí avisos cuando un precio rompe la tendencia.</p>
+        <div class="demo">
+          <div class="alert-demo">
+            <div class="alert-row">
+              <span class="ic-sm">!</span>
+              <span class="nm-sm">Carrefour · Lácteos</span>
+              <span class="pct-sm">+4.2%</span>
+            </div>
+            <div class="alert-row">
+              <span class="ic-sm amb">~</span>
+              <span class="nm-sm">YPF · Nafta súper</span>
+              <span class="pct-sm" style="color: oklch(0.50 0.16 70)">+2.1%</span>
+            </div>
+            <div class="alert-row">
+              <span class="ic-sm">!</span>
+              <span class="nm-sm">Loma Negra · Cemento</span>
+              <span class="pct-sm">+6.8%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feat 3 -->
+      <div class="feat">
+        <div class="ic">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
+          </svg>
+        </div>
+        <h3 class="h3">API & integraciones</h3>
+        <p>Endpoints REST, descargas en CSV/Parquet y conector directo para Excel, Sheets, Power BI y Looker.</p>
+        <div class="demo">
+          <div class="code">
+            <div><span class="c">// fetch monthly CPI for a sector</span></div>
+            <div><span class="k">GET</span> <span class="v">/v1/series/cpi</span></div>
+            <div><span class="p">?</span><span class="key">sector</span><span class="p">=</span><span class="s">"indumentaria"</span></div>
+            <div><span class="p">&amp;</span><span class="key">freq</span><span class="p">=</span><span class="s">"monthly"</span></div>
+            <div><span class="p">&amp;</span><span class="key">since</span><span class="p">=</span><span class="s">"2024-01"</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── DASHBOARD PREVIEW (large) ───────── -->
+<section class="tight">
+  <div class="wrap">
+    <div class="sec-intro" style="margin-bottom: 32px;">
+      <div>
+        <span class="eyebrow">El explorador</span>
+        <h2 class="h2" style="margin-top: 12px;">Lo que ven tus analistas.</h2>
+      </div>
+      <p class="right">Una vista única para descubrir, comparar y exportar series. Sin SQL, sin armar dashboards, sin pelear con Excel.</p>
+    </div>
+
+    <div class="dash">
+      <div class="dash-inner">
+        <aside class="dash-side">
+          <div class="lockup">
+            <svg width="22" height="22" viewBox="0 0 120 120"><use href="#logo"/></svg>
+            <span class="wm" style="font-size: 17px;">Datinomics<span class="pt">.</span></span>
+          </div>
+          <div class="head">Plataforma</div>
+          <div class="nav-i active">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            Explorador
+          </div>
+          <div class="nav-i">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+            Empresas
+          </div>
+          <div class="nav-i">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+            Rubros
+          </div>
+          <div class="nav-i">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9"/></svg>
+            Alertas
+          </div>
+          <div class="head">Recursos</div>
+          <div class="nav-i">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            API & docs
+          </div>
+        </aside>
+
+        <main class="dash-main">
+          <div class="toolbar">
+            <h4>Explorador · Argentina</h4>
+            <div class="pill-row">
+              <span class="pill">3M</span>
+              <span class="pill active">12M</span>
+              <span class="pill">5Y</span>
+              <span class="pill">Máx</span>
+            </div>
+          </div>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="lbl">Empresas</div>
+              <div class="v mono">23</div>
+              <div class="d">▲ 2 esta semana</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">SKUs</div>
+              <div class="v mono">141</div>
+              <div class="d">▲ 18 este mes</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Var. mensual</div>
+              <div class="v mono">+2.3%</div>
+              <div class="d">▲ vs. abril</div>
+            </div>
+            <div class="kpi">
+              <div class="lbl">Var. i/a</div>
+              <div class="v mono">+45.3%</div>
+              <div class="d">▲ jun '25</div>
+            </div>
+          </div>
+
+          <div class="big-chart">
+            <div class="ch-head">
+              <span class="ch-title">Índice general · base 100</span>
+              <span class="ch-meta mono">jun '25 → may '26</span>
+            </div>
+            <svg viewBox="0 0 700 140" preserveAspectRatio="none" style="width:100%; height: 150px;">
+              <defs>
+                <linearGradient id="areaG2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="oklch(0.58 0.20 290)" stop-opacity="0.30"/>
+                  <stop offset="100%" stop-color="oklch(0.58 0.20 290)" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <g stroke="oklch(0.92 0.008 280)" stroke-width="1">
+                <line x1="0" y1="35" x2="700" y2="35"/>
+                <line x1="0" y1="70" x2="700" y2="70"/>
+                <line x1="0" y1="105" x2="700" y2="105"/>
+              </g>
+              <path d="M0,115 L58,108 L116,100 L175,90 L234,84 L292,70 L351,60 L410,52 L468,42 L527,36 L586,28 L644,20 L700,12 L700,140 L0,140 Z"
+                    fill="url(#areaG2)"/>
+              <path d="M0,115 L58,108 L116,100 L175,90 L234,84 L292,70 L351,60 L410,52 L468,42 L527,36 L586,28 L644,20 L700,12"
+                    fill="none" stroke="oklch(0.42 0.18 290)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="700" cy="12" r="5" fill="oklch(0.78 0.16 70)" stroke="white" stroke-width="2"/>
+            </svg>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── COBERTURA ───────── -->
+<section class="cobertura" id="cobertura">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div>
+        <span class="eyebrow">Cobertura</span>
+        <h2 class="h2" style="margin-top: 12px;">Doce rubros, una sola fuente.</h2>
+      </div>
+      <p class="right">Cada rubro se actualiza diariamente. Click para abrir el detalle, los SKUs incluidos y la metodología de relevamiento.</p>
+    </div>
+
+    <div class="rubros" id="rubros">
+      <!-- generated below via JS to avoid repetition -->
+    </div>
+  </div>
+</section>
+
+<!-- ───────── API SECTION ───────── -->
+<section class="api" id="api">
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <span class="eyebrow">Para builders</span>
+        <h2 class="h2">Data en serio.<br/>Directo a tu stack.</h2>
+        <p class="lead">REST, GraphQL y descargas masivas en CSV o Parquet. Una sola API key, rate-limits altos y SLA del 99.9%.</p>
+        <div class="features-inline">
+          <div class="fi">
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span><b>Series listas para análisis</b> — limpias, deflacionadas, con metadata de origen.</span>
+          </div>
+          <div class="fi">
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span><b>Webhooks de alertas</b> — disparalas a Slack, email o tu propio endpoint.</span>
+          </div>
+          <div class="fi">
+            <span class="check">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </span>
+            <span><b>SDKs oficiales</b> en Python, R, JavaScript y conector nativo para Excel y Google Sheets.</span>
+          </div>
+        </div>
+        <div class="cta-row" style="margin-top: 32px;">
+          <a href="#" class="btn primary lg">Solicitar API key</a>
+          <a href="#" class="btn ghost lg" style="background: transparent; color: white; border-color: oklch(0.40 0.10 290);">Ver documentación →</a>
+        </div>
+      </div>
+
+      <div class="codeblock">
+        <div class="head">
+          <span>api.datinomics.com/v1</span>
+          <span class="lang">Python</span>
+        </div>
+<pre><span class="c"># Get monthly price index for Indumentaria — last 24 months</span>
+<span class="k">from</span> datinomics <span class="k">import</span> Client
+
+client <span class="p">=</span> Client<span class="p">(</span>api_key<span class="p">=</span><span class="v">os</span><span class="p">.</span>environ<span class="p">[</span><span class="s">"DTN_KEY"</span><span class="p">])</span>
+
+series <span class="p">=</span> client<span class="p">.</span>series<span class="p">.</span>cpi<span class="p">(</span>
+    <span class="key">sector</span><span class="p">=</span><span class="s">"indumentaria"</span><span class="p">,</span>
+    <span class="key">freq</span><span class="p">=</span><span class="s">"monthly"</span><span class="p">,</span>
+    <span class="key">since</span><span class="p">=</span><span class="s">"2024-06"</span><span class="p">,</span>
+    <span class="key">region</span><span class="p">=</span><span class="s">"AR-C"</span>  <span class="c"># CABA</span>
+<span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span>series<span class="p">.</span>latest<span class="p">)</span>
+<span class="c">#  { "date": "2026-05-01", "index": 145.3,</span>
+<span class="c">#    "mom": 0.023, "yoy": 0.453, "base": 100 }</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CASOS DE USO ───────── -->
+<section id="casos">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div>
+        <span class="eyebrow">Casos de uso</span>
+        <h2 class="h2" style="margin-top: 12px;">Quién usa Datinomics.</h2>
+      </div>
+      <p class="right">Desde mesas de análisis macro hasta equipos de pricing en retail. Construido para cuando una proyección importa de verdad.</p>
+    </div>
+
+    <div class="casos">
+      <div class="caso">
+        <span class="top-i">01 · Finanzas</span>
+        <span class="nm">Bancos & fondos</span>
+        <p>Cubrir el riesgo inflación con un IPC alternativo de alta frecuencia.</p>
+        <ul>
+          <li>Hedge de bonos CER</li>
+          <li>Modelos de proyección IPC</li>
+          <li>Reportes para inversores</li>
+        </ul>
+      </div>
+      <div class="caso">
+        <span class="top-i">02 · Retail</span>
+        <span class="nm">Cadenas & e-commerce</span>
+        <p>Benchmark de precios contra competidores reales, no estimados.</p>
+        <ul>
+          <li>Pricing dinámico</li>
+          <li>Análisis de canasta</li>
+          <li>Margen por SKU</li>
+        </ul>
+      </div>
+      <div class="caso">
+        <span class="top-i">03 · Sector público</span>
+        <span class="nm">Gobierno & think tanks</span>
+        <p>Series de alta frecuencia para política económica y análisis sectorial.</p>
+        <ul>
+          <li>IPC por provincia</li>
+          <li>Estudios de impacto</li>
+          <li>Open data programs</li>
+        </ul>
+      </div>
+      <div class="caso">
+        <span class="top-i">04 · Consultoría</span>
+        <span class="nm">Research & advisory</span>
+        <p>Detrás de los informes que se citan en medios y conferencias.</p>
+        <ul>
+          <li>Reportes mensuales</li>
+          <li>Dashboards de cliente</li>
+          <li>Embedding en notas</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── TESTIMONIAL ───────── -->
+<section class="tight">
+  <div class="wrap">
+    <div class="quote">
+      <p class="text">Antes armábamos un Excel con quince hojas para responder una sola pregunta de inflación sectorial. Hoy abrimos Datinomics, filtramos por rubro y exportamos. Es la diferencia entre llegar al cliente el lunes o el miércoles.</p>
+      <div class="author">
+        <div class="avatar">MS</div>
+        <div class="who">
+          <div class="nm">María Sánchez</div>
+          <div class="role">Head of Macro Research · Consultora privada · Buenos Aires</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CTA FINAL ───────── -->
+<section class="tight">
+  <div class="wrap">
+    <div class="cta-final">
+      <span class="eyebrow" style="color: var(--violet-300);">Empezá hoy</span>
+      <h2 class="h2" style="margin-top: 12px;">La economía argentina,<br/>en tiempo real.</h2>
+      <p class="lead">Acceso de prueba por 14 días al explorador completo. Sin tarjeta. Sin compromisos.</p>
+      <div class="ctas">
+        <a href="#" class="btn primary lg">Solicitar acceso</a>
+        <a href="#" class="btn ghost lg">Hablar con ventas →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div class="col brand-col">
+        <a href="#" class="lockup" aria-label="Datinomics">
+          <svg width="24" height="24" viewBox="0 0 120 120"><use href="#logo"/></svg>
+          <span class="wm" style="font-size: 19px;">Datinomics<span class="pt">.</span></span>
+        </a>
+        <p>Todos los precios de la economía argentina, en un solo lugar. Un producto de <b>BERÁ</b>.</p>
+      </div>
+      <div class="col">
+        <h5>Producto</h5>
+        <a href="#producto">Explorador</a>
+        <a href="#producto">Alertas</a>
+        <a href="#api">API</a>
+        <a href="#">Precios</a>
+        <a href="#">Changelog</a>
+      </div>
+      <div class="col">
+        <h5>Cobertura</h5>
+        <a href="#cobertura">Rubros</a>
+        <a href="#cobertura">Empresas</a>
+        <a href="#cobertura">Metodología</a>
+        <a href="#">Calendario</a>
+      </div>
+      <div class="col">
+        <h5>Empresa</h5>
+        <a href="#">Sobre BERÁ</a>
+        <a href="#casos">Casos</a>
+        <a href="#">Blog</a>
+        <a href="#">Prensa</a>
+        <a href="#">Trabajá con nosotros</a>
+      </div>
+      <div class="col">
+        <h5>Legal</h5>
+        <a href="#">Términos</a>
+        <a href="#">Privacidad</a>
+        <a href="#">DPA</a>
+        <a href="#">Seguridad</a>
+      </div>
+    </div>
+    <div class="bot">
+      <span>© 2026 Datinomics · Buenos Aires, Argentina</span>
+      <span class="bera">Un producto de <b>BERÁ</b></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Generate the rubros grid (sparklines + percentages) — keeps HTML tidy
+  const rubros = [
+    { nm: 'Indumentaria', pct: '+47.2%', skus: '24 SKUs', data: [12,18,22,30,38,42,50,58,66,74,82,90] },
+    { nm: 'Construcción', pct: '+47.0%', skus: '18 SKUs', data: [10,14,20,26,34,40,48,54,62,72,80,88] },
+    { nm: 'Alimentos',    pct: '+46.8%', skus: '36 SKUs', data: [14,18,24,30,36,44,50,58,66,74,80,86] },
+    { nm: 'Tecnología',   pct: '+46.5%', skus: '12 SKUs', data: [16,20,26,30,38,42,48,56,62,70,78,84] },
+    { nm: 'Salud',        pct: '+45.3%', skus: '15 SKUs', data: [12,16,22,28,34,40,46,52,60,68,76,82] },
+    { nm: 'Servicios',    pct: '+44.1%', skus: '22 SKUs', data: [10,14,18,24,30,36,42,50,58,66,72,80] },
+    { nm: 'Hogar',        pct: '+43.7%', skus: '19 SKUs', data: [14,18,22,28,34,40,46,52,58,66,72,78] },
+    { nm: 'Transporte',   pct: '+42.9%', skus: '11 SKUs', data: [12,16,20,26,32,36,42,48,56,64,70,76] },
+    { nm: 'Educación',    pct: '+41.5%', skus: '08 SKUs', data: [10,14,18,22,28,34,40,46,52,58,66,72] },
+    { nm: 'Esparcimiento',pct: '+39.8%', skus: '14 SKUs', data: [12,16,20,24,28,34,40,44,50,58,64,68] },
+    { nm: 'Turismo',      pct: '+38.4%', skus: '09 SKUs', data: [10,14,18,22,26,30,36,42,48,54,60,66] },
+    { nm: 'Combustibles', pct: '+34.2%', skus: '07 SKUs', data: [14,16,20,22,26,28,32,38,44,50,54,58] },
+  ];
+
+  const sparkline = (data) => {
+    const w = 200, h = 28;
+    const max = Math.max(...data), min = Math.min(...data);
+    const pts = data.map((v, i) => {
+      const x = (i / (data.length - 1)) * w;
+      const y = h - ((v - min) / (max - min || 1)) * h;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    });
+    return `<svg class="sparkline" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+      <polyline points="${pts.join(' ')}" fill="none" stroke="oklch(0.42 0.18 290)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="${w}" cy="${pts[pts.length-1].split(',')[1]}" r="2.5" fill="oklch(0.78 0.16 70)"/>
+    </svg>`;
+  };
+
+  const wrap = document.getElementById('rubros');
+  wrap.innerHTML = rubros.map(r => `
+    <a class="rubro" href="#">
+      <span class="nm">${r.nm}</span>
+      <span class="pct">${r.pct} ▲</span>
+      ${sparkline(r.data)}
+      <span class="footer-r">${r.skus} · i/a</span>
+    </a>
+  `).join('');
+</script>
+
+</body>
+</html>

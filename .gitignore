@@ -1,0 +1,41 @@
+# Datos de precios (regenerables, 200+ MB)
+**/precios_*.xlsx
+**/precios_*.csv
+
+# Variables de entorno (secretos y datos personales)
+.env
+!.env.example
+
+# Logs
+*.log
+*.txt
+!**/requirements*.txt
+!**/README*.txt
+relevar_*_log*
+scrape_*_log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Excel temp
+~$*.xlsx
+~$*.xls
+
+# IDE
+.vscode/
+.idea/
+*.swp
+.DS_Store
+
+# Playwright
+.playwright/
+node_modules/
+
+# tareas temporales del agente
+tasks/

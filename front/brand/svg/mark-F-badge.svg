@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+  <rect x="0" y="0" width="120" height="120" rx="28" fill="oklch(0.36 0.18 290)"></rect>
+  <text x="60" y="80" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="68" letter-spacing="-3" fill="white">Dn</text>
+  <circle cx="98" cy="22" r="6" fill="oklch(0.78 0.16 70)"></circle>
+</svg>

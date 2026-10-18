@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Datinomics · Iconset geométrico</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --violet-700: oklch(0.42 0.18 290);
+    --violet-100: oklch(0.94 0.04 290);
+    --violet-50:  oklch(0.975 0.014 290);
+    --amber:      oklch(0.78 0.16 70);
+    --ink:        oklch(0.18 0.015 280);
+    --ink-2:      oklch(0.36 0.012 280);
+    --ink-3:      oklch(0.58 0.010 280);
+    --paper:      #ffffff;
+    --paper-2:    oklch(0.985 0.004 280);
+    --line:       oklch(0.92 0.010 280);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background: var(--paper-2);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    padding: 56px 0;
+  }
+  .wrap{ max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  header{
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--line);
+    margin-bottom: 40px;
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--violet-700);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: -0.025em;
+    line-height: 1.05;
+    color: var(--ink);
+  }
+  h1 .pt{ color: var(--violet-700); }
+  .lead{
+    font-size: 17px;
+    color: var(--ink-2);
+    max-width: 680px;
+    margin-top: 16px;
+    line-height: 1.55;
+  }
+  .meta{
+    margin-top: 24px;
+    display: flex; gap: 22px;
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .meta span b{ color: var(--ink); font-weight: 600; }
+
+  .section-h{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin: 56px 0 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+  @media (max-width: 900px){ .grid{ grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 540px){ .grid{ grid-template-columns: repeat(2, 1fr); } }
+
+  .icon-card{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 22px 16px 14px;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 14px;
+    transition: all .15s ease;
+  }
+  .icon-card:hover{
+    transform: translateY(-2px);
+    border-color: var(--violet-700);
+    box-shadow: 0 8px 24px -10px oklch(0.42 0.18 290 / .20);
+  }
+  .icon-card svg{ display: block; color: var(--ink); }
+  .icon-name{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-3);
+    letter-spacing: 0.04em;
+  }
+
+  /* Size demo strip */
+  .size-strip{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px 32px;
+    display: flex; align-items: center; justify-content: space-around;
+    gap: 24px;
+  }
+  .size-step{
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+  }
+  .size-step svg{ color: var(--violet-700); }
+  .size-step .sz{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.06em;
+  }
+
+  /* Treatment row */
+  .treat-row{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+  .treat{
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .treat .swatch{
+    width: 84px; height: 84px;
+    border-radius: 14px;
+    display: grid; place-items: center;
+  }
+  .t-default{ background: var(--paper-2); color: var(--ink); }
+  .t-primary{ background: var(--violet-100); color: var(--violet-700); }
+  .t-solid{   background: var(--violet-700); color: white; }
+  .t-amber{   background: oklch(0.96 0.06 70); color: oklch(0.50 0.16 70); }
+  .treat .lbl{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Button examples */
+  .btn-grid{
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 30px;
+    display: flex; gap: 16px; flex-wrap: wrap; align-items: center;
+  }
+  .btn{
+    display: inline-flex; align-items: center; gap: 8px;
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 10px;
+    font-size: 14px; font-weight: 600;
+    border: none; cursor: pointer;
+    font-family: inherit;
+  }
+  .btn.primary{ background: var(--violet-700); color: white; }
+  .btn.ghost{ background: var(--paper-2); color: var(--ink); border: 1px solid var(--line); }
+  .btn.icon-only{ width: 42px; padding: 0; justify-content: center; }
+  .chip{
+    display: inline-flex; align-items: center; gap: 6px;
+    height: 30px; padding: 0 12px;
+    border-radius: 8px;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    font-size: 13px; color: var(--ink-2);
+  }
+
+  footer{
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--line);
+    font-family:'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    display: flex; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Brand system · Iconset v1</div>
+    <h1>Iconos<span class="pt">.</span> geométricos para Datinomics</h1>
+    <p class="lead">Un set de 22 iconos diseñados sobre la grilla 24×24, en línea con el mark Pulse: combinaciones de rectángulos redondeados, círculos perfectos y rectas — sin curvas decorativas, sin gestos orgánicos.</p>
+    <div class="meta">
+      <span>Grilla · <b>24×24</b></span>
+      <span>Stroke · <b>2 px</b></span>
+      <span>Esquinas · <b>2 px</b></span>
+      <span>Vocabulario · <b>□ ○ |</b></span>
+    </div>
+  </header>
+
+  <div class="section-h">
+    <span>Set completo · 22 iconos</span>
+    <span>currentColor · 24×24</span>
+  </div>
+  <div class="grid" id="icon-grid"></div>
+
+  <div class="section-h">
+    <span>Tamaños recomendados</span>
+    <span>line-icon a partir de 14 px</span>
+  </div>
+  <div class="size-strip">
+    <div class="size-step"><svg id="sz-12"  width="12" height="12" viewBox="0 0 24 24"></svg><span class="sz">12 px</span></div>
+    <div class="size-step"><svg id="sz-14"  width="14" height="14" viewBox="0 0 24 24"></svg><span class="sz">14 px</span></div>
+    <div class="size-step"><svg id="sz-16"  width="16" height="16" viewBox="0 0 24 24"></svg><span class="sz">16 px</span></div>
+    <div class="size-step"><svg id="sz-20"  width="20" height="20" viewBox="0 0 24 24"></svg><span class="sz">20 px</span></div>
+    <div class="size-step"><svg id="sz-24"  width="24" height="24" viewBox="0 0 24 24"></svg><span class="sz">24 px</span></div>
+    <div class="size-step"><svg id="sz-32"  width="32" height="32" viewBox="0 0 24 24"></svg><span class="sz">32 px</span></div>
+    <div class="size-step"><svg id="sz-48"  width="48" height="48" viewBox="0 0 24 24"></svg><span class="sz">48 px</span></div>
+  </div>
+
+  <div class="section-h">
+    <span>Tratamientos cromáticos</span>
+    <span>contenedor 84×84</span>
+  </div>
+  <div class="treat-row">
+    <div class="treat">
+      <div class="swatch t-default"><svg id="tr-1" width="32" height="32" viewBox="0 0 24 24"></svg></div>
+      <span class="lbl">Default · ink</span>
+    </div>
+    <div class="treat">
+      <div class="swatch t-primary"><svg id="tr-2" width="32" height="32" viewBox="0 0 24 24"></svg></div>
+      <span class="lbl">Primary · violet</span>
+    </div>
+    <div class="treat">
+      <div class="swatch t-solid"><svg id="tr-3" width="32" height="32" viewBox="0 0 24 24"></svg></div>
+      <span class="lbl">Solid · violet 700</span>
+    </div>
+    <div class="treat">
+      <div class="swatch t-amber"><svg id="tr-4" width="32" height="32" viewBox="0 0 24 24"></svg></div>
+      <span class="lbl">Acento · amber</span>
+    </div>
+  </div>
+
+  <div class="section-h">
+    <span>En botones y chips</span>
+    <span>ejemplos en contexto</span>
+  </div>
+  <div class="btn-grid">
+    <button class="btn primary"><svg id="b1" width="16" height="16" viewBox="0 0 24 24"></svg> Solicitar acceso</button>
+    <button class="btn ghost"><svg id="b2" width="16" height="16" viewBox="0 0 24 24"></svg> Exportar CSV</button>
+    <button class="btn ghost"><svg id="b3" width="16" height="16" viewBox="0 0 24 24"></svg> Crear alerta</button>
+    <button class="btn ghost icon-only"><svg id="b4" width="16" height="16" viewBox="0 0 24 24"></svg></button>
+    <button class="btn ghost icon-only"><svg id="b5" width="16" height="16" viewBox="0 0 24 24"></svg></button>
+    <span class="chip"><svg id="c1" width="12" height="12" viewBox="0 0 24 24"></svg> CSV</span>
+    <span class="chip"><svg id="c2" width="12" height="12" viewBox="0 0 24 24"></svg> Filtros</span>
+    <span class="chip"><svg id="c3" width="12" height="12" viewBox="0 0 24 24"></svg> Copiar</span>
+  </div>
+
+  <footer>
+    <span>Datinomics · Iconset v1</span>
+    <span>22 iconos · ©2026</span>
+  </footer>
+
+</div>
+
+<script>
+// Icon library (inline so this page is self-contained)
+const ICONS = {
+  search:`<circle cx="10.5" cy="10.5" r="5.5" fill="none" stroke="currentColor" stroke-width="2"/>
+          <circle cx="10.5" cy="10.5" r="1.6" fill="currentColor"/>
+          <line x1="14.6" y1="14.6" x2="20" y2="20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>`,
+  building:`<rect x="5" y="3.5" width="14" height="17" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/>
+            <rect x="8" y="6.5" width="2.6" height="2.6" rx="0.4" fill="currentColor"/>
+            <rect x="13.4" y="6.5" width="2.6" height="2.6" rx="0.4" fill="currentColor"/>
+            <rect x="8" y="11" width="2.6" height="2.6" rx="0.4" fill="currentColor"/>
+            <rect x="13.4" y="11" width="2.6" height="2.6" rx="0.4" fill="currentColor"/>
+            <rect x="10" y="15.5" width="4" height="5" rx="0.6" fill="currentColor"/>`,
+  grid:`<rect x="3" y="3" width="8" height="8" rx="1.6" fill="currentColor"/>
+        <rect x="13" y="3" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="3" y="13" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="13" y="13" width="8" height="8" rx="1.6" fill="none" stroke="currentColor" stroke-width="2"/>`,
+  bell:`<line x1="12" y1="2.5" x2="12" y2="4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M6.5 17 L17.5 17 L16.5 14 V11 a4.5 4.5 0 0 0 -9 0 V14 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <circle cx="12" cy="20" r="1.6" fill="currentColor"/>`,
+  code:`<polyline points="9 7 4 12 9 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <polyline points="15 7 20 12 15 17" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <line x1="14" y1="6" x2="10" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`,
+  settings:`<line x1="4" y1="6" x2="20" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4" y1="18" x2="20" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="16" cy="6" r="2.4" fill="white" stroke="currentColor" stroke-width="2"/>
+            <circle cx="9" cy="12" r="2.4" fill="white" stroke="currentColor" stroke-width="2"/>
+            <circle cx="14" cy="18" r="2.4" fill="white" stroke="currentColor" stroke-width="2"/>`,
+  download:`<line x1="12" y1="3.5" x2="12" y2="14.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <polyline points="7 10 12 15.5 17 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+            <line x1="4" y1="20" x2="20" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`,
+  plus:`<line x1="12" y1="5" x2="12" y2="19" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+        <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>`,
+  chevron:`<polyline points="9 5 16 12 9 19" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`,
+  chevronD:`<polyline points="5 9 12 16 19 9" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`,
+  check:`<polyline points="4 12.5 10 18 20 6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>`,
+  x:`<line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+     <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>`,
+  back:`<line x1="20" y1="12" x2="5" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <polyline points="11 6 5 12 11 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`,
+  bolt:`<polygon points="14 2.5 4.5 13.5 11 13.5 10 21.5 19.5 10.5 13 10.5 14 2.5" fill="currentColor"/>`,
+  region:`<path d="M12 21.5 C 12 21.5 5 14.5 5 10 a 7 7 0 0 1 14 0 c 0 4.5 -7 11.5 -7 11.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="12" cy="10" r="2.6" fill="currentColor"/>`,
+  filter:`<path d="M4 5.5 L20 5.5 L14 12.5 L14 19 L10 17 L10 12.5 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`,
+  pin:`<line x1="12" y1="14" x2="12" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+       <polygon points="6 8 18 8 16 14 8 14" fill="currentColor"/>
+       <line x1="5" y1="8" x2="19" y2="8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`,
+  info:`<circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/>
+        <rect x="11" y="10.5" width="2" height="6.5" rx="1" fill="currentColor"/>
+        <circle cx="12" cy="7.5" r="1.4" fill="currentColor"/>`,
+  user:`<circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="2"/>
+        <path d="M4 20 a 8 8 0 0 1 16 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>`,
+  arrow:`<line x1="4" y1="12" x2="19" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+         <polyline points="13 6 19 12 13 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>`,
+  book:`<path d="M5 3 H17 a2 2 0 0 1 2 2 V21 H7 a2 2 0 0 1 -2 -2 V3 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="2"/>`,
+  play:`<polygon points="6.5 4 20 12 6.5 20" fill="currentColor"/>`,
+};
+
+// render grid
+const grid = document.getElementById('icon-grid');
+grid.innerHTML = Object.entries(ICONS).map(([name, body]) => `
+  <div class="icon-card">
+    <svg width="32" height="32" viewBox="0 0 24 24">${body}</svg>
+    <span class="icon-name">${name}</span>
+  </div>
+`).join('');
+
+// fill size strip with the search icon
+const sizeIds = ['sz-12','sz-14','sz-16','sz-20','sz-24','sz-32','sz-48'];
+sizeIds.forEach(id => document.getElementById(id).innerHTML = ICONS.search);
+
+// fill treatments with grid icon
+['tr-1','tr-2','tr-3','tr-4'].forEach(id => document.getElementById(id).innerHTML = ICONS.grid);
+
+// fill button examples
+document.getElementById('b1').innerHTML = ICONS.bell;
+document.getElementById('b2').innerHTML = ICONS.download;
+document.getElementById('b3').innerHTML = ICONS.plus;
+document.getElementById('b4').innerHTML = ICONS.search;
+document.getElementById('b5').innerHTML = ICONS.filter;
+document.getElementById('c1').innerHTML = ICONS.download;
+document.getElementById('c2').innerHTML = ICONS.filter;
+document.getElementById('c3').innerHTML = ICONS.book;
+</script>
+</body>
+</html>

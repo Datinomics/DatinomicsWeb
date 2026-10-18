@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 160" width="720" height="160">
+  <rect width="720" height="160" fill="oklch(0.18 0.015 280)"></rect>
+  
+  <g transform="translate(20,20)">
+    <rect x="6" y="50" width="10" height="20" rx="5" fill="oklch(0.85 0.10 290)"></rect>
+    <rect x="22" y="38" width="10" height="44" rx="5" fill="oklch(0.75 0.16 290)"></rect>
+    <rect x="38" y="22" width="10" height="76" rx="5" fill="oklch(0.65 0.20 290)"></rect>
+    <rect x="54" y="8" width="12" height="104" rx="6" fill="oklch(0.55 0.22 290)"></rect>
+    <rect x="72" y="22" width="10" height="76" rx="5" fill="oklch(0.65 0.20 290)"></rect>
+    <rect x="88" y="38" width="10" height="44" rx="5" fill="oklch(0.75 0.16 290)"></rect>
+    <rect x="104" y="50" width="10" height="20" rx="5" fill="oklch(0.85 0.10 290)"></rect>
+    <circle cx="60" cy="8" r="6" fill="oklch(0.78 0.16 70)"></circle>
+  </g>
+  <text x="160" y="118" class="wm">Datinomics<tspan class="dot">.</tspan></text>
+</svg>

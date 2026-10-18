@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="240" height="240">
+  <circle cx="20" cy="20" r="6" fill="oklch(0.36 0.18 290)"></circle>
+  <circle cx="20" cy="40" r="6" fill="oklch(0.36 0.18 290)"></circle>
+  <circle cx="20" cy="60" r="6" fill="oklch(0.36 0.18 290)"></circle>
+  <circle cx="20" cy="80" r="6" fill="oklch(0.36 0.18 290)"></circle>
+  <circle cx="20" cy="100" r="6" fill="oklch(0.36 0.18 290)"></circle>
+  <circle cx="40" cy="20" r="6" fill="oklch(0.48 0.20 290)"></circle>
+  <circle cx="60" cy="20" r="6" fill="oklch(0.48 0.20 290)"></circle>
+  <circle cx="40" cy="100" r="6" fill="oklch(0.48 0.20 290)"></circle>
+  <circle cx="60" cy="100" r="6" fill="oklch(0.48 0.20 290)"></circle>
+  <circle cx="80" cy="30" r="6" fill="oklch(0.58 0.20 290)"></circle>
+  <circle cx="92" cy="48" r="6" fill="oklch(0.58 0.20 290)"></circle>
+  <circle cx="96" cy="60" r="6" fill="oklch(0.78 0.16 70)"></circle>
+  <circle cx="92" cy="72" r="6" fill="oklch(0.58 0.20 290)"></circle>
+  <circle cx="80" cy="90" r="6" fill="oklch(0.58 0.20 290)"></circle>
+</svg>
