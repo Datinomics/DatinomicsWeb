@@ -6,6 +6,12 @@ Combina:
   2) retailers correntinos locales (descubiertos con busqueda dirigida por rubro)
 Verifica que cada URL este viva y publique precios. -> corrientes_retailers.xlsx
 """
+
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
+
 import concurrent.futures as cf
 import re
 import socket

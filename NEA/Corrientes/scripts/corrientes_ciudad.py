@@ -7,6 +7,12 @@ busca el sitio de cada uno y verifica si tiene tienda online con precios (scrape
 SEED: nombres reales de retailers de Corrientes capital por rubro.
 Para cada uno: usa la URL conocida o la descubre, verifica live + plataforma e-commerce.
 """
+
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
+
 import concurrent.futures as cf
 import re
 import socket

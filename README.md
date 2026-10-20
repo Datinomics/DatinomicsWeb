@@ -32,6 +32,9 @@ _Nacional/                       # codigo y registros compartidos
 └── scripts/                          # solo si la provincia tiene customizacion propia
 ```
 
+Los scripts de `NEA/Corrientes/scripts/` importan los scrapers y utilidades
+compartidas (`scrapers/`, `verificar_cadenas.py`) desde `_Nacional/`.
+
 5 regiones: NOA, NEA, Cuyo, Centro-Pampeana, Patagonia. 24 jurisdicciones (23 provincias + CABA).
 
 ## Flujo ETL (de cero para una provincia nueva)

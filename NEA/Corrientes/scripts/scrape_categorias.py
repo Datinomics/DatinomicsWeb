@@ -11,6 +11,9 @@ Salida: ../excels/precios_<rubro>.xlsx
 import argparse
 import datetime
 import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
 import re
 import socket
 import time
@@ -18,8 +21,8 @@ import time
 import pandas as pd
 import requests
 
-from scraper_vtex import scrape_vtex
-from scraper_woo import scrape_woo
+from scrapers.vtex import scrape_vtex
+from scrapers.woo import scrape_woo
 
 socket.setdefaulttimeout(30)
 HOY = datetime.date.today().isoformat()

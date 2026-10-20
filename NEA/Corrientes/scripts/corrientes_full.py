@@ -5,6 +5,12 @@ Metodo: lista curada verificada + descubrimiento por rubro, con filtro estricto:
 debe correr sobre plataforma e-commerce real Y mencionar Corrientes en la pagina.
 -> Corrientes_full.xlsx
 """
+
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
+
 import concurrent.futures as cf
 import html as _html
 import re

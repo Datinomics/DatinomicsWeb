@@ -8,8 +8,13 @@ Salida: precios_supermercados.xlsx (hoja 'Precios' con todo + 'Resumen' por tien
 import datetime
 import pandas as pd
 
-from scraper_vtex import scrape_vtex
-from scraper_woo import scrape_woo
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
+
+from scrapers.vtex import scrape_vtex
+from scrapers.woo import scrape_woo
 
 # (nombre, base_url, plataforma)
 TIENDAS = [

@@ -7,12 +7,16 @@ precios_Farmacias.xlsx existente.
 """
 import datetime
 import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
+
 import re
 
 import pandas as pd
 from playwright.sync_api import sync_playwright
 
-from scraper_playwright import JS_EXTRACT, _precio
+from scrapers.playwright_fb import JS_EXTRACT, _precio
 
 HOY = datetime.date.today().isoformat()
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "

@@ -8,12 +8,15 @@ Uso: py scrape_faltantes_pw.py [--rubro X] [--limite N]
 """
 import argparse
 import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "..", "..", "_Nacional"))
 import re
 
 import pandas as pd
 
 from scrape_categorias import rubro_de, sheet_name
-from scraper_playwright import scrape_playwright
+from scrapers.playwright_fb import scrape_playwright
 
 FULL = "../excels/Corrientes_full.xlsx"
 OUTDIR = "../excels"
