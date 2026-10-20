@@ -5,6 +5,7 @@ import re
 import time
 
 import requests
+from . import diag
 
 HOY = datetime.date.today().isoformat()
 H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
@@ -36,15 +37,20 @@ def scrape(base, tienda, max_pages=10, **_):
         try:
             r = _S.get(f"{base}/products.json", params={"limit": 250, "page": page},
                        headers=H, timeout=25)
-        except Exception:
+        except Exception as e:
+            diag.fallo(type(e).__name__)
             break
         if r.status_code != 200:
+            diag.fallo(f"HTTP {r.status_code}")
             break
         try:
             prods = r.json().get("products", [])
         except Exception:
+            diag.fallo("JSON invalido")
             break
         if not prods:
+            if page == 1:
+                diag.fallo("catalogo vacio")
             break
         for p in prods:
             cat = p.get("product_type", "") or ""

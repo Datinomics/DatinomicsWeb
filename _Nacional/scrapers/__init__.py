@@ -17,7 +17,7 @@ Si el scraper devuelve [] (sin productos), igual se reporta la plataforma probad
 import re
 
 import requests
-
+from . import diag
 from . import shopify as _shopify
 from . import tiendanube as _tiendanube
 
@@ -86,9 +86,9 @@ def _run_shopify(base, tienda):
 
 def _run_vtex(base, tienda):
     if _vtex_mod is None:
+        diag.fallo("modulo vtex no importable")
         return []
     return _vtex_mod.scrape_vtex(base, tienda, max_cats=40)
-
 
 def _run_tiendanube(base, tienda):
     return _tiendanube.scrape(base, tienda)
@@ -96,18 +96,21 @@ def _run_tiendanube(base, tienda):
 
 def _run_woo(base, tienda):
     if _woo_mod is None:
+        diag.fallo("modulo woo no importable")
         return []
     return _woo_mod.scrape_woo(base, tienda, max_pages=25)
 
 
 def _run_playwright(base, tienda):
     if _pw_mod is None:
+        diag.fallo("playwright no disponible (import fallo)")
         return []
     try:
         return _pw_mod.scrape_playwright(base, tienda)
-    except Exception:
+    except Exception as e:
+        detalle = (str(e).splitlines() or [""])[0][:100]
+        diag.fallo(f"playwright {type(e).__name__}: {detalle}")
         return []
-
 
 def dispatch(plataforma, url, tienda):
     """plataforma: string de la columna Plataforma del relevamiento, o None/'' para auto.

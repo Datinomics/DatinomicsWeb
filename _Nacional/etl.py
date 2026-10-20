@@ -25,7 +25,7 @@ import time
 import pandas as pd
 
 # scrapers como paquete
-from scrapers import dispatch
+from scrapers import dispatch, diag
 
 socket.setdefaulttimeout(30)
 HOY = datetime.date.today().isoformat()
@@ -158,13 +158,15 @@ def correr_provincia(folder, rubro_filtro="", limite=0, skip_nacional=True, exce
             plat_excel = str(r.get("Plataforma", "")).strip()
             if sheet_name(nombre, set(usados)) in usados:
                 continue
+            diag.reset()
             try:
                 filas, plat = dispatch(plat_excel, r["URL"], nombre)
             except Exception as e:
                 filas, plat = [], f"error:{type(e).__name__}"
             con = sum(1 for f in filas if f.get("Precio"))
             origen = f"({plat_excel}->{plat})" if plat_excel else f"({plat})"
-            print(f"  {nombre[:34]:34s} {origen:30s} {len(filas):5d} prod ({con} c/precio)", flush=True)
+            motivo = f" [{diag.ultimo()}]" if not filas and diag.ultimo() else ""
+            print(f"  {nombre[:34]:34s} {origen:30s} {len(filas):5d} prod ({con} c/precio){motivo}", flush=True)
             time.sleep(0.4)
             if filas:
                 d = pd.DataFrame(filas).reindex(columns=["SKU", "Nombre", "Precio", "Fecha", "Categoria"])
