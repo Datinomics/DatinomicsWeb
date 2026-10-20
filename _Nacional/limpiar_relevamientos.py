@@ -6,7 +6,7 @@ directorios, homepages de plataformas) y lo manda a una hoja 'Descartados'.
 """
 import glob
 import os
-import re
+
 
 import pandas as pd
 

@@ -6,7 +6,6 @@ Verifica el universo de cadenas (cadenas_argentina.py):
 Genera cadenas_argentina_retailers.xlsx
 """
 import concurrent.futures as cf
-import re
 import socket
 
 import requests

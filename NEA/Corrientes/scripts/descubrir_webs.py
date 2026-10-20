@@ -21,7 +21,7 @@ import shutil
 import socket
 import time
 import unicodedata
-import urllib.parse
+
 
 import requests
 from dotenv import load_dotenv

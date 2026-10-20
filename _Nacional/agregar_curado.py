@@ -17,7 +17,7 @@ import tempfile
 import pandas as pd
 
 from relevar_provincia import (
-    CURADO_NACIONAL, PROVINCIAS, hacer_verificar, dominio, norm,
+    CURADO_NACIONAL, PROVINCIAS, hacer_verificar, dominio,
 )
 
 COLS = ["Empresa", "Sector", "URL", "Tienda online", "Plataforma",
