@@ -97,14 +97,44 @@ def sheet_name(s, usados):
     return n
 
 
+def limpiar_nombre(s):
+    """Nombre de hoja base (sin el sufijo _2, _3 que agrega sheet_name)."""
+    return re.sub(r"[\[\]:\*\?/\\]", "", str(s))[:28].strip() or "Local"
+
+
 def cargar_hojas_previas(out_path):
+    """Devuelve (hojas, dominios_por_hoja) de un precios_*.xlsx ya existente.
+    Si el archivo existe pero no se puede leer, lanza la excepcion: mejor no
+    tocarlo que pisarlo con un Excel vacio."""
     if not os.path.exists(out_path):
-        return {}
-    try:
-        xl = pd.ExcelFile(out_path)
-        return {s: xl.parse(s) for s in xl.sheet_names if s != "Resumen"}
-    except Exception:
-        return {}
+        return {}, {}
+    doms = {}
+    # "with" cierra el archivo: en Windows, si queda abierto, despues no se puede reemplazar
+    with pd.ExcelFile(out_path) as xl:
+        hojas = {s: xl.parse(s) for s in xl.sheet_names if s != "Resumen"}
+        if "Resumen" in xl.sheet_names:
+            res = xl.parse("Resumen").fillna("")
+            if "Dominio" in res.columns:
+                doms = {str(r["Local"]): str(r["Dominio"]) for _, r in res.iterrows() if r["Dominio"]}
+    return hojas, doms
+
+
+def guardar_rubro(out_path, hojas, doms):
+    """Escribe el Excel del rubro de forma atomica (tmp + replace), asi un corte
+    a mitad de la escritura no deja el archivo corrupto."""
+    tmp = out_path + ".tmp.xlsx"
+    with pd.ExcelWriter(tmp, engine="openpyxl") as xl:
+        resumen = pd.DataFrame(
+            [(n, doms.get(n, ""), len(d), int(d["Precio"].notna().sum()) if "Precio" in d.columns else 0)
+             for n, d in hojas.items()],
+            columns=["Local", "Dominio", "Productos", "Con precio"])
+        resumen.to_excel(xl, sheet_name="Resumen", index=False)
+        for nombre, d in hojas.items():
+            d.to_excel(xl, sheet_name=nombre[:31], index=False)
+    os.replace(tmp, out_path)
+
+
+GUARDAR_CADA_SEG = 60  # checkpoint: reescribir el Excel como mucho una vez por minuto
 
 
 def correr_provincia(folder, rubro_filtro="", limite=0, skip_nacional=True, excel=None):
@@ -149,43 +179,63 @@ def correr_provincia(folder, rubro_filtro="", limite=0, skip_nacional=True, exce
         if limite:
             locales = locales.head(limite)
         out_path = os.path.join(out_dir, f"precios_{rubro}_{folder}.xlsx")
-        previas = cargar_hojas_previas(out_path)
-        usados = set(previas.keys())
-        nuevos = []
-        print(f"\n===== {rubro} ({len(locales)} locales, {len(previas)} ya hechos) =====", flush=True)
-        for _, r in locales.iterrows():
-            nombre = str(r["Empresa"])[:40]
-            plat_excel = str(r.get("Plataforma", "")).strip()
-            if sheet_name(nombre, set(usados)) in usados:
-                continue
-            diag.reset()
-            try:
-                filas, plat = dispatch(plat_excel, r["URL"], nombre)
-            except Exception as e:
-                filas, plat = [], f"error:{type(e).__name__}"
-            con = sum(1 for f in filas if f.get("Precio"))
-            origen = f"({plat_excel}->{plat})" if plat_excel else f"({plat})"
-            motivo = f" [{diag.ultimo()}]" if not filas and diag.ultimo() else ""
-            print(f"  {nombre[:34]:34s} {origen:30s} {len(filas):5d} prod ({con} c/precio){motivo}", flush=True)
-            time.sleep(0.4)
-            if filas:
-                d = pd.DataFrame(filas).reindex(columns=["SKU", "Nombre", "Precio", "Fecha", "Categoria"])
-                sh = sheet_name(nombre, usados)
-                nuevos.append((sh, d))
-        if not nuevos and not previas:
-            print("  (sin datos)", flush=True)
-            continue
-        todas = list(previas.items()) + nuevos
         try:
-            with pd.ExcelWriter(out_path, engine="openpyxl") as xl:
-                resumen = pd.DataFrame([(n, len(d), int(d["Precio"].notna().sum()) if "Precio" in d.columns else 0)
-                                        for n, d in todas], columns=["Local", "Productos", "Con precio"])
-                resumen.to_excel(xl, sheet_name="Resumen", index=False)
-                for nombre, d in todas:
-                    d.to_excel(xl, sheet_name=nombre[:31], index=False)
-            print(f"  -> {out_path} ({len(todas)} locales, +{len(nuevos)} nuevos)", flush=True)
+            hojas, doms = cargar_hojas_previas(out_path)
         except Exception as e:
-            print(f"  ERROR guardando {out_path}: {e}", flush=True)
+            print(f"\n===== {rubro}: ERROR leyendo {out_path} ({e}); lo salteo para no pisarlo", flush=True)
+            continue
+        usados = set(hojas.keys())
+        # Reanudacion: por dominio (Resumen nuevo) o por nombre de hoja (Excels viejos sin Dominio)
+        doms_hechos = set(doms.values())
+        nombres_hechos = {re.sub(r"_\d+$", "", h) for h in hojas if h not in doms}
+        print(f"\n===== {rubro} ({len(locales)} locales, {len(hojas)} ya hechos) =====", flush=True)
+        n_nuevos = 0
+        pendiente = False
+        ultimo_guardado = time.time()
+
+        def checkpoint(forzar=False):
+            nonlocal pendiente, ultimo_guardado
+            if not pendiente or (not forzar and time.time() - ultimo_guardado < GUARDAR_CADA_SEG):
+                return
+            try:
+                guardar_rubro(out_path, hojas, doms)
+                pendiente = False
+                ultimo_guardado = time.time()
+                print(f"  -> guardado {os.path.basename(out_path)} ({len(hojas)} locales, +{n_nuevos} nuevos)", flush=True)
+            except Exception as e:
+                print(f"  ERROR guardando {out_path}: {e} (reintento en el proximo local)", flush=True)
+
+        try:
+            for _, r in locales.iterrows():
+                nombre = str(r["Empresa"])[:40]
+                dom = r["dom"]
+                plat_excel = str(r.get("Plataforma", "")).strip()
+                if dom in doms_hechos or limpiar_nombre(nombre) in nombres_hechos:
+                    continue
+                diag.reset()
+                try:
+                    filas, plat = dispatch(plat_excel, r["URL"], nombre)
+                except Exception as e:
+                    filas, plat = [], f"error:{type(e).__name__}"
+                con = sum(1 for f in filas if f.get("Precio"))
+                origen = f"({plat_excel}->{plat})" if plat_excel else f"({plat})"
+                motivo = f" [{diag.ultimo()}]" if not filas and diag.ultimo() else ""
+                print(f"  {nombre[:34]:34s} {origen:30s} {len(filas):5d} prod ({con} c/precio){motivo}", flush=True)
+                time.sleep(0.4)
+                if filas:
+                    d = pd.DataFrame(filas).reindex(columns=["SKU", "Nombre", "Precio", "Fecha", "Categoria"])
+                    sh = sheet_name(nombre, usados)
+                    hojas[sh] = d
+                    doms[sh] = dom
+                    doms_hechos.add(dom)
+                    n_nuevos += 1
+                    pendiente = True
+                    checkpoint()
+        finally:
+            # tambien corre con Ctrl+C o error: guarda lo que haya quedado sin guardar
+            checkpoint(forzar=True)
+        if not hojas:
+            print("  (sin datos)", flush=True)
 
 
 def correr_todas(paralelo=1, skip_nacional=True):
