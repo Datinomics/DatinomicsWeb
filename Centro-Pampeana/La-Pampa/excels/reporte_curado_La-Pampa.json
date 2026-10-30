@@ -1,0 +1,173 @@
+{
+  "provincia": "La-Pampa",
+  "fecha": "2026-10-29T21:34:34",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Cooperativa Obrera Limitada de Consumo y Vivienda"
+  ],
+  "relevados": 973,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 392.2,
+  "verificacion": {
+    "OTRA_UBICACION": 520,
+    "SIN_EVIDENCIA": 285,
+    "VERIFICADA": 59,
+    "AGREGADOR_O_DIRECTORIO": 38,
+    "NO_RESPONDE": 36,
+    "NO_ES_SITIO_PROPIO": 32,
+    "REDIRIGE_A_OTRO_DOMINIO": 2,
+    "DEBIL": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Exterior)": 123,
+    "OTRA_UBICACION (Buenos Aires)": 113,
+    "OTRA_UBICACION (CABA)": 94,
+    "OTRA_UBICACION (AMBA, indicio)": 62,
+    "OTRA_UBICACION (Santa Fe)": 30,
+    "OTRA_UBICACION (Cordoba)": 23,
+    "OTRA_UBICACION (Corrientes)": 21,
+    "OTRA_UBICACION (Chaco)": 8,
+    "OTRA_UBICACION (Buenos Aires, indicio)": 7,
+    "OTRA_UBICACION (Mendoza)": 7,
+    "OTRA_UBICACION (Misiones)": 5,
+    "OTRA_UBICACION (Santiago del Estero)": 5,
+    "OTRA_UBICACION (Entre Rios)": 3,
+    "OTRA_UBICACION (Tucuman)": 3,
+    "OTRA_UBICACION (Rio Negro)": 2
+  },
+  "con_zona": 44,
+  "seg_scrape": 277.6,
+  "verificados": 59,
+  "finales_en_excel": 16,
+  "descartados_ubicacion": 914,
+  "descartados_sin_datos": 43,
+  "scrapeados": 52,
+  "scrape_estados": {
+    "sin datos": 43,
+    "ok": 9,
+    "cadena nacional": 3,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (3 sucursales)": 1,
+    "SEPA (9 sucursales)": 1,
+    "SEPA (7 sucursales)": 1
+  },
+  "productos_totales": 6019,
+  "seg_por_local_mediana": 29.85,
+  "seg_por_local_p90": 41.75,
+  "seg_suma_locales": 1715.0,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 34,
+      "con_datos": 0,
+      "seg_mediana": 32.6,
+      "seg_total": 1016.6
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 5,
+      "con_datos": 5,
+      "seg_mediana": 10.8,
+      "seg_total": 78.6
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.1,
+      "seg_total": 0.1
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 12,
+      "con_datos": 4,
+      "seg_mediana": 27.0,
+      "seg_total": 619.7
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "agrotodopico.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1489,
+      "Segundos": 273.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "mueblecity.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1411,
+      "Segundos": 125.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "tecnotronicos.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1310,
+      "Segundos": 63.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "diarco.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 52.2,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "distribuidoraeldestino.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 420,
+      "Segundos": 46.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "unilocal.net",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 41.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "laarena.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 40.4,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "infopico.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 39.8,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "farmaciapampa.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 39.2,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "petshops1.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.5,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 41,
+    "sin precios publicados (573 productos)": 1,
+    "sin precios publicados (319 productos)": 1
+  },
+  "seg_total": 672.6
+}

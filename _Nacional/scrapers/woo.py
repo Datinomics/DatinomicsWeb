@@ -13,6 +13,11 @@ import time
 import pandas as pd
 import requests
 
+try:
+    from . import diag
+except ImportError:  # corrido como script suelto
+    diag = None
+
 socket.setdefaulttimeout(30)
 H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
@@ -69,6 +74,8 @@ def scrape_woo(base, tienda, max_pages=0, delay=0.35):
     print(f"  {len(cats)} categorias", flush=True)
     by_sku = {}
     for cid, cname in cats:
+        if diag and diag.corto_por_tope():
+            break
         page = 1
         while True:
             try:

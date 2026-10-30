@@ -1,0 +1,154 @@
+# Extraccion diaria de precios sin servidor propio (runners de GitHub).
+#
+# 21:30 ART (00:30 UTC), despues de que SEPA publica el paquete del dia (~16:20):
+#   1. fuentes-y-sepa: fuentes externas + SEPA (deja datos/sepa/cobertura.json)
+#   2. scrape: una tarea por provincia (y una para las cadenas nacionales), en paralelo.
+#      De noche: es cuando menos se molesta a las tiendas (Shopify incluido).
+#   3. calidad: junta todo, control de calidad y comparacion con el dia anterior.
+#
+# Donde quedan los datos:
+#   - Siempre: artifacts del run (90 dias), descargables desde la pestaña Actions.
+#   - Si estan los secrets R2_* (Cloudflare R2, 10 GB gratis, compatible S3): se suben a
+#     s3://$R2_BUCKET/diario/<fecha>/ y fuentes/ — es el historico permanente.
+# Los datos NUNCA se commitean: el repo es publico.
+name: Extraccion diaria
+
+on:
+  schedule:
+    - cron: "30 0 * * *"
+  workflow_dispatch:
+    inputs:
+      provincias:
+        description: "Provincias a scrapear (JSON). Vacio = todas"
+        required: false
+        default: ""
+
+concurrency:
+  group: extraccion-diaria
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: "1"
+  TZ: America/Argentina/Buenos_Aires
+
+jobs:
+  fuentes-y-sepa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Traer el acumulado de medicamentos (se completa de a partes por el limite diario)
+        if: env.R2_BUCKET != ''
+        run: aws s3 cp "s3://$R2_BUCKET/fuentes/medicamentos/acumulado.parquet" datos/fuentes/medicamentos/acumulado.parquet --endpoint-url "$R2_ENDPOINT" || true
+      - name: Fuentes externas y SEPA
+        working-directory: _Nacional
+        env:
+          ALFABETA_USUARIO: ${{ secrets.ALFABETA_USUARIO }}
+          ALFABETA_CLAVE: ${{ secrets.ALFABETA_CLAVE }}
+          ML_CLIENT_ID: ${{ secrets.ML_CLIENT_ID }}
+          ML_CLIENT_SECRET: ${{ secrets.ML_CLIENT_SECRET }}
+        run: python diario.py fuentes sepa
+      - name: Quitar el zip de SEPA (300 MB) antes de subir
+        run: rm -f sepa_*.zip
+      - name: Subir fuentes y SEPA a R2
+        if: env.R2_BUCKET != ''
+        run: |
+          aws s3 sync datos/fuentes "s3://$R2_BUCKET/fuentes" --endpoint-url "$R2_ENDPOINT"
+          aws s3 sync datos/sepa "s3://$R2_BUCKET/sepa" --endpoint-url "$R2_ENDPOINT"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: fuentes-y-sepa
+          path: |
+            datos/
+            Centro-Pampeana/*/excels/precios_SEPA_*.xlsx
+            Cuyo/*/excels/precios_SEPA_*.xlsx
+            NEA/*/excels/precios_SEPA_*.xlsx
+            NOA/*/excels/precios_SEPA_*.xlsx
+            Patagonia/*/excels/precios_SEPA_*.xlsx
+          retention-days: 90
+
+  scrape:
+    needs: fuentes-y-sepa
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 10
+      matrix:
+        provincia: ${{ fromJSON(github.event.inputs.provincias || '["_cadenas","CABA","Buenos-Aires","Catamarca","Chaco","Chubut","Cordoba","Corrientes","Entre-Rios","Formosa","Jujuy","La-Pampa","La-Rioja","Mendoza","Misiones","Neuquen","Rio-Negro","Salta","San-Juan","San-Luis","Santa-Cruz","Santa-Fe","Santiago-del-Estero","Tierra-del-Fuego","Tucuman"]') }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt && python -m playwright install --with-deps chromium
+      - uses: actions/download-artifact@v4
+        with:
+          name: fuentes-y-sepa
+          path: .
+      - name: Scrape ${{ matrix.provincia }}
+        working-directory: _Nacional
+        run: python diario.py scrape --provincias ${{ matrix.provincia }} --workers 12 --tope-seg 600
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: precios-${{ matrix.provincia }}
+          path: datos/diario/
+          retention-days: 90
+
+  calidad:
+    needs: scrape
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: auto
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: precios-*
+          path: datos/diario/
+          merge-multiple: true
+      - name: Traer la corrida anterior (para comparar)
+        if: env.R2_BUCKET != ''
+        run: |
+          ANT=$(aws s3 ls "s3://$R2_BUCKET/diario/" --endpoint-url "$R2_ENDPOINT" | awk '{print $2}' | sed 's#/##' | sort | tail -1)
+          [ -n "$ANT" ] && aws s3 sync "s3://$R2_BUCKET/diario/$ANT" "datos/diario/$ANT" --endpoint-url "$R2_ENDPOINT" --exclude "*" --include "precios_*.parquet" || true
+      - name: Control de calidad
+        working-directory: _Nacional
+        run: python diario.py calidad
+      - uses: actions/upload-artifact@v4
+        with:
+          name: calidad
+          path: datos/diario/*/calidad.*
+          retention-days: 90
+      - name: Subir a R2
+        if: env.R2_BUCKET != ''
+        run: |
+          aws s3 sync datos/diario "s3://$R2_BUCKET/diario" --endpoint-url "$R2_ENDPOINT"
+      - name: Resumen en la pagina del run
+        run: |
+          echo "### Extraccion $(date +%F)" >> $GITHUB_STEP_SUMMARY
+          python -c "import json,glob; r=json.load(open(sorted(glob.glob('datos/diario/*/calidad.json'))[-1])); print('\n'.join(f'- **{k}**: {v}' for k,v in r.items() if k!='comparacion')); print('- comparacion:', json.dumps(r.get('comparacion',{}), ensure_ascii=False)[:1500])" >> $GITHUB_STEP_SUMMARY

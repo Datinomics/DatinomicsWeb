@@ -1,0 +1,179 @@
+{
+  "provincia": "Corrientes",
+  "fecha": "2026-10-27T15:41:44",
+  "workers_scrape": 8,
+  "workers_verificacion": 32,
+  "tope_seg_por_local": 900,
+  "agregadas_desde_sepa": [],
+  "relevados": 316,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Descartados (ubicacion)",
+    "Descartados (sin datos)"
+  ],
+  "seg_verificacion": 229.3,
+  "verificacion": {
+    "OTRA_UBICACION": 179,
+    "VERIFICADA": 78,
+    "SIN_EVIDENCIA": 36,
+    "AGREGADOR_O_DIRECTORIO": 11,
+    "NO_RESPONDE": 9,
+    "NO_ES_SITIO_PROPIO": 3
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (CABA)": 51,
+    "OTRA_UBICACION (Buenos Aires)": 39,
+    "OTRA_UBICACION (AMBA, indicio)": 32,
+    "OTRA_UBICACION (Santa Fe)": 15,
+    "OTRA_UBICACION (Exterior)": 9,
+    "OTRA_UBICACION (Chaco)": 9,
+    "OTRA_UBICACION (Cordoba)": 8,
+    "OTRA_UBICACION (Misiones)": 4,
+    "OTRA_UBICACION (Mendoza)": 3,
+    "OTRA_UBICACION (Entre Rios)": 2,
+    "OTRA_UBICACION (Santiago del Estero)": 2,
+    "OTRA_UBICACION (Buenos Aires, indicio)": 1,
+    "OTRA_UBICACION (Catamarca)": 1,
+    "OTRA_UBICACION (San Juan)": 1,
+    "OTRA_UBICACION (Chaco, indicio)": 1
+  },
+  "seg_scrape": 195.6,
+  "verificados": 78,
+  "finales_en_excel": 47,
+  "descartados_ubicacion": 238,
+  "descartados_sin_datos": 31,
+  "scrapeados": 31,
+  "scrape_estados": {
+    "ya scrapeada": 42,
+    "sin datos": 31,
+    "SEPA (2 sucursales)": 3,
+    "SEPA (3 sucursales)": 1,
+    "SEPA (15 sucursales)": 1
+  },
+  "productos_totales": 0,
+  "seg_por_local_mediana": 0.6,
+  "seg_por_local_p90": 1.9,
+  "seg_suma_locales": 268.4,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.6,
+      "seg_total": 0.6
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 7,
+      "con_datos": 0,
+      "seg_mediana": 0.8,
+      "seg_total": 183.6
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 67.8,
+      "seg_total": 67.8
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 6,
+      "con_datos": 0,
+      "seg_mediana": 0.4,
+      "seg_total": 2.5
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 5,
+      "con_datos": 0,
+      "seg_mediana": 0.3,
+      "seg_total": 3.3
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 11,
+      "con_datos": 0,
+      "seg_mediana": 0.9,
+      "seg_total": 10.6
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "supermaxsa.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 180.1,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "labodega.com.ar",
+      "Plataforma usada": "prestashop(playwright)",
+      "Productos": 0,
+      "Segundos": 67.8,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "antinoriautopartes.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 1.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "teleflor.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 1.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "despensaelpino.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 0,
+      "Segundos": 1.5,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "dexter.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 1.3,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "antinoriaccesorios.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 1.3,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "forcor.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 1.2,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "corrientessistemas.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 0,
+      "Segundos": 1.2,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "farmar.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 1.2,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 30,
+    "JSONDecodeError: Expecting value: line 1": 1
+  },
+  "seg_total": 426.0
+}

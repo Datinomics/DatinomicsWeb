@@ -24,14 +24,22 @@ def precio_ar(s):
         return None
 
 
-def scrape(base, tienda, max_pages=40, **_):
+def scrape(base, tienda, max_pages=500, **_):
     rows, seen = [], set()
     for page in range(1, max_pages + 1):
-        try:
-            r = _S.get(f"{base}/productos", params={"page": page}, headers=H, timeout=25)
-        except Exception:
-            break
-        if r.status_code != 200 or "js-item-product" not in r.text:
+        # todas las tiendas Tiendanube comparten infraestructura: con varios hilos
+        # aparecen 429/5xx transitorios. Reintentar con espera antes de cortar.
+        r = None
+        for espera in (0, 5, 15, 30):
+            time.sleep(espera)
+            try:
+                r = _S.get(f"{base}/productos", params={"page": page}, headers=H, timeout=25)
+            except Exception:
+                r = None
+                continue
+            if r.status_code not in (429, 500, 502, 503, 504):
+                break
+        if r is None or r.status_code != 200 or "js-item-product" not in r.text:
             break
         h = r.text
         ids = [(m.start(), m.group(1)) for m in re.finditer(r'data-product-id="(\d+)"', h)]

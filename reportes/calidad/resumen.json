@@ -1,0 +1,167 @@
+{
+  "fecha": "2026-10-29T21:19:53",
+  "provincias": {
+    "CABA": {
+      "provincia": "CABA",
+      "curada": true,
+      "comercios_con_datos": 522,
+      "productos": 548510,
+      "estados": {
+        "OK": 379,
+        "REVISAR": 143
+      },
+      "alertas_frecuentes": {
+        "precios extremos": 109,
+        "precios en N o negativos": 72,
+        "precios fuera de rango": 24,
+        "N.N% sin precio": 21,
+        "rubro dudoso: parece Indumentaria-Calzado-Deportes": 6,
+        "solo N productos": 5,
+        "rubro dudoso: parece Electro-Tecnologia": 4,
+        "rubro dudoso: parece Ferreteria-Construccion": 2,
+        "rubro dudoso: parece Joyerias-Regalos": 2,
+        "rubro dudoso: parece Libreria-Jugueteria": 2
+      },
+      "rubro_dudoso": 21,
+      "huerfanos": 0,
+      "sepa_banderas": 14,
+      "sepa_revisar": 5
+    },
+    "Mendoza": {
+      "provincia": "Mendoza",
+      "curada": true,
+      "comercios_con_datos": 105,
+      "productos": 130423,
+      "estados": {
+        "OK": 62,
+        "REVISAR": 43
+      },
+      "alertas_frecuentes": {
+        "precios extremos": 37,
+        "precios en N o negativos": 26,
+        "precios fuera de rango": 5,
+        "solo N productos": 4,
+        "rubro dudoso: parece Electro-Tecnologia": 3,
+        "N.N% sin precio": 2,
+        "rubro dudoso: parece Mayoristas": 1,
+        "duplicados": 1
+      },
+      "rubro_dudoso": 4,
+      "huerfanos": 0,
+      "sepa_banderas": 9,
+      "sepa_revisar": 3
+    },
+    "Corrientes": {
+      "provincia": "Corrientes",
+      "curada": true,
+      "comercios_con_datos": 38,
+      "productos": 37486,
+      "estados": {
+        "OK": 28,
+        "REVISAR": 10
+      },
+      "alertas_frecuentes": {
+        "precios extremos": 8,
+        "precios en N o negativos": 3,
+        "precios fuera de rango": 2,
+        "rubro dudoso: parece Electro-Tecnologia": 2,
+        "rubro dudoso: parece Muebles-Hogar-Bazar": 1,
+        "N.N% sin precio": 1
+      },
+      "rubro_dudoso": 3,
+      "huerfanos": 0,
+      "sepa_banderas": 7,
+      "sepa_revisar": 0
+    }
+  },
+  "fuentes": [
+    {
+      "Fuente": "combustibles",
+      "Archivo": "combustibles_2026-10-29.parquet",
+      "Filas": 6658,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 2469.0,
+      "Dato mas reciente": "2026-10-29",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "granos",
+      "Archivo": "granos_2026-10-29.parquet",
+      "Filas": 5,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 317300.0,
+      "Dato mas reciente": "2026-10-28",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "hacienda",
+      "Archivo": "hacienda_2026-10-29.parquet",
+      "Filas": 61,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 3807.009,
+      "Dato mas reciente": "2026-10-28",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "frutas_hortalizas",
+      "Archivo": "frutas_hortalizas_2026-10-29.parquet",
+      "Filas": 5323,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 2076.92,
+      "Dato mas reciente": "2026-10-29",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "zonaprop",
+      "Archivo": "zonaprop_2026-10-29.parquet",
+      "Filas": 5811,
+      "Nulos": 126,
+      "Fuera de rango": 0,
+      "Mediana": 218000.0,
+      "Dato mas reciente": "",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "argenprop",
+      "Archivo": "argenprop_2026-10-29.parquet",
+      "Filas": 20,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 247500.0,
+      "Dato mas reciente": "",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "bcra",
+      "Archivo": "bcra_2026-10-29.parquet",
+      "Filas": 1649,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 3634.0,
+      "Dato mas reciente": "2026-10-29",
+      "Alertas": "",
+      "Estado": "OK"
+    },
+    {
+      "Fuente": "medicamentos",
+      "Archivo": "medicamentos_2026-10-29.parquet",
+      "Filas": 210,
+      "Nulos": 0,
+      "Fuera de rango": 0,
+      "Mediana": 28804.095,
+      "Dato mas reciente": "2026-10-28",
+      "Alertas": "2 filas duplicadas",
+      "Estado": "REVISAR"
+    }
+  ]
+}

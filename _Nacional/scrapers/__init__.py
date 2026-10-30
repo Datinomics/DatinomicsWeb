@@ -15,6 +15,7 @@ dispatch(plataforma, base, tienda) -> (filas, plataforma_usada)
 Si el scraper devuelve [] (sin productos), igual se reporta la plataforma probada.
 """
 import re
+import threading
 
 import requests
 from . import diag
@@ -48,7 +49,8 @@ def base_url(u):
 
 def _try_shopify(base):
     try:
-        r = _S.get(f"{base}/products.json", params={"limit": 1}, headers=H, timeout=15)
+        urls = [f"{base}{ruta}" for ruta in _shopify.RUTAS]
+        r = _shopify._get(urls[0], {"limit": 1}, urls[1:])  # mismo turno que el scraper
         return r.status_code == 200 and isinstance(r.json().get("products"), list) and bool(r.json()["products"])
     except Exception:
         return False
@@ -101,12 +103,17 @@ def _run_woo(base, tienda):
     return _woo_mod.scrape_woo(base, tienda, max_pages=25)
 
 
+# cada scrape con Playwright levanta un Chromium: con varios hilos, limitar cuantos a la vez
+_PW_SLOTS = threading.BoundedSemaphore(3)
+
+
 def _run_playwright(base, tienda):
     if _pw_mod is None:
         diag.fallo("playwright no disponible (import fallo)")
         return []
     try:
-        return _pw_mod.scrape_playwright(base, tienda)
+        with _PW_SLOTS:
+            return _pw_mod.scrape_playwright(base, tienda)
     except Exception as e:
         detalle = (str(e).splitlines() or [""])[0][:100]
         diag.fallo(f"playwright {type(e).__name__}: {detalle}")

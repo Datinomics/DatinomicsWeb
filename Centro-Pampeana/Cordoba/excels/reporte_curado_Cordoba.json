@@ -1,0 +1,200 @@
+{
+  "provincia": "Cordoba",
+  "fecha": "2026-10-29T21:08:55",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea",
+    "Disco",
+    "Axion Energy",
+    "Mariano Max"
+  ],
+  "relevados": 1654,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 629.4,
+  "verificacion": {
+    "OTRA_UBICACION": 711,
+    "VERIFICADA": 483,
+    "SIN_EVIDENCIA": 307,
+    "AGREGADOR_O_DIRECTORIO": 59,
+    "NO_RESPONDE": 49,
+    "NO_ES_SITIO_PROPIO": 39,
+    "DEBIL": 6
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 168,
+    "OTRA_UBICACION (CABA)": 152,
+    "OTRA_UBICACION (Exterior)": 134,
+    "OTRA_UBICACION (AMBA, indicio)": 98,
+    "OTRA_UBICACION (Santa Fe)": 43,
+    "OTRA_UBICACION (Corrientes)": 28,
+    "OTRA_UBICACION (Mendoza)": 11,
+    "OTRA_UBICACION (Santiago del Estero)": 10,
+    "OTRA_UBICACION (Entre Rios)": 10,
+    "OTRA_UBICACION (San Juan)": 9,
+    "OTRA_UBICACION (Chaco)": 6,
+    "OTRA_UBICACION (La Pampa)": 5,
+    "OTRA_UBICACION (Salta)": 5,
+    "OTRA_UBICACION (Tucuman)": 5,
+    "OTRA_UBICACION (Rio Negro)": 4
+  },
+  "con_zona": 359,
+  "seg_scrape": 1518.7,
+  "verificados": 483,
+  "finales_en_excel": 213,
+  "descartados_ubicacion": 1171,
+  "descartados_sin_datos": 270,
+  "scrapeados": 467,
+  "scrape_estados": {
+    "sin datos": 270,
+    "ok": 195,
+    "cadena nacional": 5,
+    "SEPA (50 sucursales)": 2,
+    "SEPA (3 sucursales)": 2,
+    "SEPA (1 sucursales)": 2,
+    "parcial (tope)": 2,
+    "SEPA (7 sucursales)": 1,
+    "SEPA (8 sucursales)": 1,
+    "SEPA (20 sucursales)": 1,
+    "SEPA (22 sucursales)": 1,
+    "SEPA (11 sucursales)": 1
+  },
+  "productos_totales": 171743,
+  "seg_por_local_mediana": 12.7,
+  "seg_por_local_p90": 69.24000000000002,
+  "seg_suma_locales": 15277.2,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 3,
+      "con_datos": 2,
+      "seg_mediana": 30.1,
+      "seg_total": 92.2
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 183,
+      "con_datos": 0,
+      "seg_mediana": 12.4,
+      "seg_total": 2704.1
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 11,
+      "con_datos": 4,
+      "seg_mediana": 30.7,
+      "seg_total": 370.9
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 4,
+      "con_datos": 3,
+      "seg_mediana": 12.7,
+      "seg_total": 127.2
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 131,
+      "con_datos": 117,
+      "seg_mediana": 18.7,
+      "seg_total": 5811.1
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 37,
+      "con_datos": 8,
+      "seg_mediana": 1.8,
+      "seg_total": 721.1
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 98,
+      "con_datos": 63,
+      "seg_mediana": 11.1,
+      "seg_total": 5450.6
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "tienda5h.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 4213,
+      "Segundos": 650.9,
+      "Estado scrape": "parcial (tope)"
+    },
+    {
+      "Dominio": "emun.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 2667,
+      "Segundos": 600.9,
+      "Estado scrape": "parcial (tope)"
+    },
+    {
+      "Dominio": "hdgriferia.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 66,
+      "Segundos": 577.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "odumax.shop",
+      "Plataforma usada": "woocommerce",
+      "Productos": 2452,
+      "Segundos": 522.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "laperegrinajoyas.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2768,
+      "Segundos": 327.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "libreriacollino.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 9800,
+      "Segundos": 324.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "rafulmateriales.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1570,
+      "Segundos": 303.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "zettacomputacion.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 470,
+      "Segundos": 240.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lacasadelelasticorepuestos.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 9794,
+      "Segundos": 226.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "aiyellow.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 225.6,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 269,
+    "HTTP 404": 1
+  },
+  "seg_total": 2159.3
+}

@@ -1,0 +1,176 @@
+{
+  "provincia": "La-Rioja",
+  "fecha": "2026-10-29T21:38:14",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 798,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 394.6,
+  "verificacion": {
+    "OTRA_UBICACION": 413,
+    "SIN_EVIDENCIA": 236,
+    "VERIFICADA": 50,
+    "AGREGADOR_O_DIRECTORIO": 43,
+    "NO_RESPONDE": 29,
+    "NO_ES_SITIO_PROPIO": 27
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Exterior)": 121,
+    "OTRA_UBICACION (Buenos Aires)": 88,
+    "OTRA_UBICACION (CABA)": 71,
+    "OTRA_UBICACION (AMBA, indicio)": 42,
+    "OTRA_UBICACION (Cordoba)": 20,
+    "OTRA_UBICACION (Santa Fe)": 18,
+    "OTRA_UBICACION (Corrientes)": 13,
+    "OTRA_UBICACION (Mendoza)": 5,
+    "OTRA_UBICACION (Catamarca)": 5,
+    "OTRA_UBICACION (Tucuman)": 4,
+    "OTRA_UBICACION (Salta)": 4,
+    "OTRA_UBICACION (San Luis)": 3,
+    "OTRA_UBICACION (Entre Rios)": 3,
+    "OTRA_UBICACION (Chaco)": 2,
+    "OTRA_UBICACION (Santiago del Estero)": 2
+  },
+  "con_zona": 43,
+  "seg_scrape": 95.7,
+  "verificados": 50,
+  "finales_en_excel": 18,
+  "descartados_ubicacion": 748,
+  "descartados_sin_datos": 32,
+  "scrapeados": 42,
+  "scrape_estados": {
+    "sin datos": 32,
+    "ok": 10,
+    "cadena nacional": 5,
+    "SEPA (1 sucursales)": 2,
+    "SEPA (2 sucursales)": 1
+  },
+  "productos_totales": 5881,
+  "seg_por_local_mediana": 19.450000000000003,
+  "seg_por_local_p90": 40.95,
+  "seg_suma_locales": 867.4999999999999,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.3,
+      "seg_total": 0.3
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 20,
+      "con_datos": 0,
+      "seg_mediana": 27.2,
+      "seg_total": 513.4
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 6,
+      "con_datos": 6,
+      "seg_mediana": 17.9,
+      "seg_total": 167.7
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 2,
+      "con_datos": 0,
+      "seg_mediana": 0.4,
+      "seg_total": 0.8
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 13,
+      "con_datos": 4,
+      "seg_mediana": 1.2,
+      "seg_total": 185.3
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "farmaciamoreira.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3829,
+      "Segundos": 83.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "13disenoyplata.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 112,
+      "Segundos": 55.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "diarco.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 53.2,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "tiendadeco10.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 550,
+      "Segundos": 42.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "babellr.empretienda.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 41.0,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "viverosperica.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 40.5,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "dexter.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.3,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "laguiaonline.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.0,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "infoveterinaria.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 34.6,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "joyas-maricel.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 34.4,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 30,
+    "sin precios publicados (573 productos)": 1,
+    "JSONDecodeError: Expecting value: line 1": 1
+  },
+  "seg_total": 492.4
+}

@@ -1,0 +1,195 @@
+{
+  "provincia": "San-Juan",
+  "fecha": "2026-10-29T22:03:55",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 1093,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 457.3,
+  "verificacion": {
+    "OTRA_UBICACION": 619,
+    "SIN_EVIDENCIA": 264,
+    "VERIFICADA": 98,
+    "AGREGADOR_O_DIRECTORIO": 53,
+    "NO_ES_SITIO_PROPIO": 30,
+    "NO_RESPONDE": 27,
+    "DEBIL": 1,
+    "REDIRIGE_A_OTRO_DOMINIO": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 147,
+    "OTRA_UBICACION (Exterior)": 124,
+    "OTRA_UBICACION (CABA)": 116,
+    "OTRA_UBICACION (AMBA, indicio)": 78,
+    "OTRA_UBICACION (Santa Fe)": 27,
+    "OTRA_UBICACION (Cordoba)": 25,
+    "OTRA_UBICACION (Corrientes)": 22,
+    "OTRA_UBICACION (Mendoza)": 13,
+    "OTRA_UBICACION (Chaco)": 8,
+    "OTRA_UBICACION (Misiones)": 8,
+    "OTRA_UBICACION (Tucuman)": 7,
+    "OTRA_UBICACION (Santiago del Estero)": 5,
+    "OTRA_UBICACION (Chubut)": 5,
+    "OTRA_UBICACION (Salta)": 5,
+    "OTRA_UBICACION (Entre Rios)": 4
+  },
+  "con_zona": 76,
+  "seg_scrape": 593.7,
+  "verificados": 98,
+  "finales_en_excel": 39,
+  "descartados_ubicacion": 995,
+  "descartados_sin_datos": 59,
+  "scrapeados": 87,
+  "scrape_estados": {
+    "sin datos": 59,
+    "ok": 28,
+    "cadena nacional": 6,
+    "SEPA (1 sucursales)": 2,
+    "SEPA (3 sucursales)": 1,
+    "SEPA (6 sucursales)": 1,
+    "SEPA (9 sucursales)": 1
+  },
+  "productos_totales": 96526,
+  "seg_por_local_mediana": 18.8,
+  "seg_por_local_p90": 84.90000000000003,
+  "seg_suma_locales": 3341.300000000001,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 2,
+      "con_datos": 0,
+      "seg_mediana": 0.5,
+      "seg_total": 1.0
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 37,
+      "con_datos": 0,
+      "seg_mediana": 19.0,
+      "seg_total": 726.8
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 2,
+      "con_datos": 0,
+      "seg_mediana": 29.4,
+      "seg_total": 58.7
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 3,
+      "con_datos": 3,
+      "seg_mediana": 82.5,
+      "seg_total": 532.5
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 17,
+      "con_datos": 14,
+      "seg_mediana": 26.1,
+      "seg_total": 641.9
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 4,
+      "con_datos": 3,
+      "seg_mediana": 160.4,
+      "seg_total": 533.1
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 22,
+      "con_datos": 8,
+      "seg_mediana": 2.6,
+      "seg_total": 847.3
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "bedstoresanjuan.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 577,
+      "Segundos": 466.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "jariollano.com",
+      "Plataforma usada": "shopify",
+      "Productos": 20285,
+      "Segundos": 409.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "sportotal.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 23045,
+      "Segundos": 212.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "sporting.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 34782,
+      "Segundos": 184.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "oncity.com",
+      "Plataforma usada": "vtex",
+      "Productos": 3771,
+      "Segundos": 136.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "libreriaintegral.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1347,
+      "Segundos": 131.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "leclubdeportes.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 520,
+      "Segundos": 104.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "techsanjuan.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1123,
+      "Segundos": 95.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "mundomascotaspetshop.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1364,
+      "Segundos": 88.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "jrmdesignsinc.com",
+      "Plataforma usada": "shopify",
+      "Productos": 1417,
+      "Segundos": 82.5,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 55,
+    "JSONDecodeError: Expecting value: line 1": 2,
+    "sin precios publicados (39 productos)": 1,
+    "sin precios publicados (148 productos)": 1
+  },
+  "seg_total": 1054.2
+}

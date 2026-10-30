@@ -1,0 +1,175 @@
+{
+  "provincia": "Formosa",
+  "fecha": "2026-10-29T21:29:20",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [],
+  "relevados": 940,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 373.6,
+  "verificacion": {
+    "OTRA_UBICACION": 571,
+    "SIN_EVIDENCIA": 231,
+    "AGREGADOR_O_DIRECTORIO": 45,
+    "VERIFICADA": 38,
+    "NO_ES_SITIO_PROPIO": 29,
+    "NO_RESPONDE": 23,
+    "DEBIL": 3
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 125,
+    "OTRA_UBICACION (Exterior)": 120,
+    "OTRA_UBICACION (CABA)": 114,
+    "OTRA_UBICACION (AMBA, indicio)": 81,
+    "OTRA_UBICACION (Cordoba)": 31,
+    "OTRA_UBICACION (Santa Fe)": 27,
+    "OTRA_UBICACION (Corrientes)": 21,
+    "OTRA_UBICACION (Mendoza)": 9,
+    "OTRA_UBICACION (Chaco)": 7,
+    "OTRA_UBICACION (Salta)": 5,
+    "OTRA_UBICACION (Misiones)": 4,
+    "OTRA_UBICACION (Entre Rios)": 4,
+    "OTRA_UBICACION (Santiago del Estero)": 3,
+    "OTRA_UBICACION (San Juan)": 3,
+    "OTRA_UBICACION (Tucuman)": 3
+  },
+  "con_zona": 32,
+  "seg_scrape": 156.7,
+  "verificados": 38,
+  "finales_en_excel": 9,
+  "descartados_ubicacion": 902,
+  "descartados_sin_datos": 29,
+  "scrapeados": 33,
+  "scrape_estados": {
+    "sin datos": 29,
+    "ok": 4,
+    "cadena nacional": 3,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (3 sucursales)": 1
+  },
+  "productos_totales": 2792,
+  "seg_por_local_mediana": 29.0,
+  "seg_por_local_p90": 55.7,
+  "seg_suma_locales": 973.1999999999998,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 20,
+      "con_datos": 0,
+      "seg_mediana": 29.2,
+      "seg_total": 542.9
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 38.5,
+      "seg_total": 38.5
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 3,
+      "con_datos": 2,
+      "seg_mediana": 53.3,
+      "seg_total": 186.2
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.1,
+      "seg_total": 0.1
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 8,
+      "con_datos": 1,
+      "seg_mediana": 1.6,
+      "seg_total": 205.5
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "elasstore.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1268,
+      "Segundos": 131.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "alfanea.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 80.7,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "urbanococinaamericana.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 63.0,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "puntotekno.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 390,
+      "Segundos": 56.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "gtlenceria.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 721,
+      "Segundos": 53.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "farmaefarmaformosa.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "bancoformosa.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.7,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "bieterherramientas.com",
+      "Plataforma usada": "shopify",
+      "Productos": 413,
+      "Segundos": 38.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "sofimartire.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.4,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "joyerianobel.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 38.3,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 27,
+    "sin precios publicados (200 productos)": 1,
+    "sin precios publicados (611 productos)": 1
+  },
+  "seg_total": 532.6
+}

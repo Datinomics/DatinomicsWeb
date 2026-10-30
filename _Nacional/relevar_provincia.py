@@ -6,10 +6,22 @@ descubrimiento por rubro/ciudad (ddgs) + verificacion de e-commerce.
 Genera <region>/<provincia>/excels/<provincia>_full.xlsx (hoja 'Tiendas con web'
 + 'Candidatos (revisar)'). Acumulativo.
 
-Uso: py relevar_provincia.py [Folder1 Folder2 ...]   (sin args = todas)
+Por zona (--por-zona): en Buenos Aires se busca en cada uno de los 135 partidos, en CABA
+en cada uno de los 48 barrios y en el resto en las ciudades principales (geografia.py),
+con los rubros principales. Cada candidato guarda la zona donde aparecio ("Zona busqueda");
+la zona real la asigna despues curar_provincia.py con la evidencia de ubicacion.
+Las busquedas hechas quedan en datos/relevamiento/busquedas_<Folder>.json y no se repiten,
+y el Excel se guarda cada LOTE_ZONAS zonas: una corrida larga se puede cortar y retomar.
+Las hojas de descartados de curar_provincia.py se conservan tal cual.
+
+Uso:
+  py relevar_provincia.py [Folder1 Folder2 ...]        (sin args = todas)
+  py relevar_provincia.py Buenos-Aires CABA --por-zona
 """
+import argparse
 import concurrent.futures as cf
 import html as _html
+import json
 import os
 import re
 import socket
@@ -19,6 +31,7 @@ import unicodedata
 import pandas as pd
 from ddgs import DDGS
 
+import geografia
 from verificar_cadenas import _try_get, _candidatos, clasificar_tienda, ANTIBOT
 
 socket.setdefaulttimeout(20)
@@ -267,17 +280,24 @@ def es_extranjero(d):
     return any(d.endswith(t) for t in FOREIGN_TLD)
 
 
-def descubrir(ciudades):
+def descubrir(ciudades, rubros=None, hechas=None):
+    """Candidatos {dominio: (url, rubro, titulo, zona)}. hechas: busquedas ya hechas
+    (se saltean; las nuevas se agregan)."""
+    rubros = rubros or RUBROS
+    hechas = hechas if hechas is not None else set()
     cands = {}
     with DDGS(timeout=20) as d:
-        for rubro, plantilla in RUBROS.items():
-            for c in ciudades:
+        for c in ciudades:
+            for rubro, plantilla in rubros.items():
                 q = plantilla.format(c=c)
+                if q in hechas:
+                    continue
                 try:
                     res = list(d.text(q, region="ar-es", max_results=25))
                 except Exception:
                     time.sleep(8)
                     continue
+                hechas.add(q)
                 for r in res:
                     u = r.get("href") or ""
                     dom = dominio(u)
@@ -288,7 +308,7 @@ def descubrir(ciudades):
                         continue
                     if any(p in u.lower() for p in PATH_MALO):
                         continue
-                    cands.setdefault(dom, (u, rubro, tit))
+                    cands.setdefault(dom, (u, rubro, tit, c))
                 time.sleep(2.5)
     return cands
 
@@ -296,14 +316,14 @@ def descubrir(ciudades):
 def hacer_verificar(terminos):
     """terminos: lista de strings (provincia + ciudades, normalizados) para 'menciona'."""
     def verificar(args):
-        nombre, sector, url, origen = args
+        nombre, sector, url, origen, zona = args
         status = None
         for cand in _candidatos(url):
             status, final, htmlc = _try_get(cand)
             if status is not None:
                 break
         res = {"Empresa": nombre, "Sector": sector, "URL": url, "Origen": origen,
-               "Estado": "", "Tienda online": "", "Plataforma": "", "Menciona": ""}
+               "Estado": "", "Tienda online": "", "Plataforma": "", "Menciona": "", "Zona busqueda": zona}
         if status is None:
             res["Estado"] = "No responde"; res["Tienda online"] = "No"
             return res
@@ -321,71 +341,116 @@ def hacer_verificar(terminos):
     return verificar
 
 
-def relevar(folder, display, region, ciudades):
-    out_dir = os.path.join("..", region, folder, "excels")
-    os.makedirs(out_dir, exist_ok=True)
-    salida = os.path.join(out_dir, f"{folder}_full.xlsx")
-    print(f"\n========== {display} ({region}) ciudades={ciudades} ==========", flush=True)
-    cands = descubrir(ciudades)
-    print(f"  candidatos descubiertos: {len(cands)}", flush=True)
+RAIZ = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
+LOTE_ZONAS = 8
+COLS = ["Empresa", "Sector", "URL", "Tienda online", "Plataforma", "Menciona", "Estado", "Origen",
+        "Zona busqueda"]
+# En el barrido por partido / barrio alcanzan los rubros principales: los sub-rubros
+# multiplican las busquedas y casi siempre devuelven los mismos comercios.
+RUBROS_ZONA = list(RUBROS)[:16] + ["Verduleria/Fruteria", "Dietetica", "General"]
 
-    tareas = [(n, s, u, "Cadena nacional") for n, s, u in CURADO_NACIONAL]
-    known = {dominio(u) for _, _, u in CURADO_NACIONAL}
-    for dom, (u, rubro, tit) in cands.items():
-        if dom not in known:
-            tareas.append(("?", rubro, u, "Descubierto"))
+
+def _busquedas_hechas(folder):
+    p = os.path.join(RAIZ, "datos", "relevamiento", f"busquedas_{folder}.json")
+    hechas = set(json.load(open(p, encoding="utf-8"))) if os.path.exists(p) else set()
+
+    def guardar():
+        os.makedirs(os.path.dirname(p), exist_ok=True)
+        with open(p + ".tmp", "w", encoding="utf-8") as f:
+            json.dump(sorted(hechas), f, ensure_ascii=False)
+        os.replace(p + ".tmp", p)
+    return hechas, guardar
+
+
+def relevar(folder, display, region, ciudades, rubros=None):
+    """Busca por lotes de LOTE_ZONAS zonas; despues de cada lote verifica los candidatos
+    nuevos y los suma al Excel."""
+    hechas, guardar_hechas = _busquedas_hechas(folder)
+    rubros = {r: RUBROS[r] for r in rubros} if rubros else RUBROS
+    print(f"\n========== {display} ({region}): {len(ciudades)} zonas x {len(rubros)} rubros "
+          f"({len(hechas)} busquedas ya hechas) ==========", flush=True)
+    for i in range(0, len(ciudades), LOTE_ZONAS):
+        lote = ciudades[i:i + LOTE_ZONAS]
+        t = time.time()
+        cands = descubrir(lote, rubros, hechas)
+        guardar_hechas()
+        print(f"  zonas {i + 1}-{i + len(lote)}/{len(ciudades)}: {len(cands)} candidatos "
+              f"({time.time() - t:.0f}s) {lote}", flush=True)
+        verificar_y_sumar(folder, display, region, ciudades, cands, con_cadenas=(i == 0))
+
+
+def verificar_y_sumar(folder, display, region, ciudades, cands, con_cadenas):
+    salida = os.path.join(RAIZ, region, folder, "excels", f"{folder}_full.xlsx")
+    os.makedirs(os.path.dirname(salida), exist_ok=True)
+    hojas = {}
+    if os.path.exists(salida):
+        with pd.ExcelFile(salida) as xlp:
+            hojas = {s: xlp.parse(s) for s in xlp.sheet_names}
+    conocidos = {dominio(u) for d in hojas.values() if "URL" in d for u in d["URL"].dropna()}
+    tareas = [(n, s, u, "Cadena nacional", "") for n, s, u in CURADO_NACIONAL] if con_cadenas else []
+    for dom, (u, rubro, tit, zona) in cands.items():
+        if dom not in conocidos and dom not in {dominio(x) for _, _, x in CURADO_NACIONAL}:
+            tareas.append(("?", rubro, u, "Descubierto", zona))
+    if not tareas:
+        return
 
     terminos = [norm(display)] + [norm(c) for c in ciudades]
     verificar = hacer_verificar(terminos)
-    out = []
     with cf.ThreadPoolExecutor(max_workers=12) as ex:
-        for r in ex.map(verificar, tareas):
-            out.append(r)
+        out = list(ex.map(verificar, tareas))
     df = pd.DataFrame(out).drop_duplicates("URL")
     activo = df["Estado"].str.startswith(("OK", "Activo"))
     tienda = df["Tienda online"].isin(["Si", "Probable (anti-bot)"])
     plat = df["Plataforma"].astype(str).str.len() > 0
-    menc = df["Menciona"] == "Si"
     curado = df["Origen"] != "Descubierto"
-    cols = ["Empresa", "Sector", "URL", "Tienda online", "Plataforma", "Menciona", "Estado", "Origen"]
-    # principal: curados + descubiertos con plataforma e-commerce (queries ya scopeadas por zona)
-    principal = df[curado | (~curado & activo & tienda & plat)][cols]
-    revisar = df[(~curado) & activo & ~(tienda & plat)][cols]
-    # acumular con lo ya existente (re-runs con mas zonas SUMAN, no pisan)
-    if os.path.exists(salida):
-        try:
-            xlp = pd.ExcelFile(salida)
-            prev = pd.concat([xlp.parse(s) for s in xlp.sheet_names if "revisar" not in s.lower()],
-                             ignore_index=True).reindex(columns=cols)
-            principal = pd.concat([prev, principal], ignore_index=True)
-        except Exception:
-            pass
+    # principal: curados + descubiertos con plataforma e-commerce (las busquedas ya van por zona)
+    principal = df[curado | (~curado & activo & tienda & plat)][COLS]
+    revisar = df[(~curado) & activo & ~(tienda & plat)][COLS]
+
+    # acumular: lo que ya estaba se conserva con todas sus columnas (verificacion, zona...)
+    previo = hojas.get("Tiendas con web", pd.DataFrame(columns=COLS))
+    principal = pd.concat([previo, principal], ignore_index=True)
     principal["_d"] = principal["URL"].map(dominio)
     principal = principal.drop_duplicates("_d").drop(columns="_d").sort_values(["Sector", "Empresa"])
+    revisar = pd.concat([hojas.get("Candidatos (revisar)", pd.DataFrame(columns=COLS)), revisar], ignore_index=True)
     revisar["_d"] = revisar["URL"].map(dominio)
-    revisar = revisar[~revisar["_d"].isin(principal["URL"].map(dominio))].drop_duplicates("_d").drop(columns="_d").sort_values(["Sector", "Empresa"])
+    revisar = revisar[~revisar["_d"].isin(principal["URL"].map(dominio))].drop_duplicates("_d") \
+        .drop(columns="_d").sort_values(["Sector", "Empresa"])
+    salida_hojas = {"Tiendas con web": principal, "Candidatos (revisar)": revisar}
+    salida_hojas.update({s: d for s, d in hojas.items() if s.lower().startswith("descart")})
+    tmp = salida + ".tmp.xlsx"
     try:
-        with pd.ExcelWriter(salida, engine="openpyxl") as xl:
-            principal.to_excel(xl, sheet_name="Tiendas con web", index=False)
-            revisar.to_excel(xl, sheet_name="Candidatos (revisar)", index=False)
-            for sh in xl.sheets.values():
-                for c, w in zip("ABCDEFGH", (32, 24, 44, 16, 16, 12, 16, 18)):
+        with pd.ExcelWriter(tmp, engine="openpyxl") as xl:
+            for nombre, d in salida_hojas.items():
+                d.to_excel(xl, sheet_name=nombre[:31], index=False)
+                sh = xl.sheets[nombre[:31]]
+                for c, w in zip("ABCDEFGHI", (32, 24, 44, 16, 16, 12, 16, 18, 24)):
                     sh.column_dimensions[c].width = w
                 sh.freeze_panes = "A2"
-        print(f"  -> {salida}: {len(principal)} tiendas (+{len(revisar)} a revisar)", flush=True)
+        os.replace(tmp, salida)
+        print(f"  -> {os.path.basename(salida)}: {len(principal)} tiendas (+{len(revisar)} a revisar)", flush=True)
     except Exception as e:
         print(f"  ERROR guardando {salida}: {e}", flush=True)
 
 
 def main():
-    import sys
-    sel = sys.argv[1:]
-    items = [(f, v[0], v[1], v[2] + ZONAS_EXTRA.get(f, []))
-             for f, v in PROVINCIAS.items() if not sel or f in sel]
+    ap = argparse.ArgumentParser()
+    ap.add_argument("provincias", nargs="*", help="Folders (sin nada = todas)")
+    ap.add_argument("--por-zona", action="store_true",
+                    help="partidos (Buenos Aires), barrios (CABA) o ciudades principales, con los rubros principales")
+    a = ap.parse_args()
+    items = []
+    for f, (display, region, ciudades) in PROVINCIAS.items():
+        if a.provincias and f not in a.provincias:
+            continue
+        if a.por_zona:
+            items.append((f, display, region, geografia.zonas_relevamiento(f), RUBROS_ZONA))
+        else:
+            items.append((f, display, region, ciudades + ZONAS_EXTRA.get(f, []), None))
     print(f"Relevando {len(items)} provincias...", flush=True)
-    for folder, display, region, ciudades in items:
+    for folder, display, region, zonas, rubros in items:
         try:
-            relevar(folder, display, region, ciudades)
+            relevar(folder, display, region, zonas, rubros)
         except Exception as e:
             print(f"  FALLO {folder}: {type(e).__name__}: {e}", flush=True)
 

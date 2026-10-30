@@ -1,0 +1,171 @@
+{
+  "provincia": "Jujuy",
+  "fecha": "2026-10-29T21:30:30",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 1181,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 478.5,
+  "verificacion": {
+    "OTRA_UBICACION": 657,
+    "SIN_EVIDENCIA": 302,
+    "VERIFICADA": 89,
+    "AGREGADOR_O_DIRECTORIO": 67,
+    "NO_ES_SITIO_PROPIO": 37,
+    "NO_RESPONDE": 27,
+    "REDIRIGE_A_OTRO_DOMINIO": 1,
+    "DEBIL": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 164,
+    "OTRA_UBICACION (Exterior)": 126,
+    "OTRA_UBICACION (CABA)": 125,
+    "OTRA_UBICACION (AMBA, indicio)": 82,
+    "OTRA_UBICACION (Cordoba)": 32,
+    "OTRA_UBICACION (Santa Fe)": 29,
+    "OTRA_UBICACION (Corrientes)": 15,
+    "OTRA_UBICACION (San Juan)": 10,
+    "OTRA_UBICACION (Entre Rios)": 9,
+    "OTRA_UBICACION (Mendoza)": 9,
+    "OTRA_UBICACION (Santiago del Estero)": 9,
+    "OTRA_UBICACION (Tucuman)": 8,
+    "OTRA_UBICACION (Salta)": 6,
+    "OTRA_UBICACION (Buenos Aires, indicio)": 4,
+    "OTRA_UBICACION (Chaco)": 4
+  },
+  "con_zona": 61,
+  "seg_scrape": 533.2,
+  "verificados": 89,
+  "finales_en_excel": 30,
+  "descartados_ubicacion": 1092,
+  "descartados_sin_datos": 59,
+  "scrapeados": 83,
+  "scrape_estados": {
+    "sin datos": 59,
+    "ok": 24,
+    "cadena nacional": 3,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (1 sucursales)": 1,
+    "SEPA (3 sucursales)": 1
+  },
+  "productos_totales": 35794,
+  "seg_por_local_mediana": 17.8,
+  "seg_por_local_p90": 54.67999999999999,
+  "seg_suma_locales": 2695.7,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 42,
+      "con_datos": 0,
+      "seg_mediana": 24.2,
+      "seg_total": 966.1
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 18,
+      "con_datos": 17,
+      "seg_mediana": 14.8,
+      "seg_total": 954.5
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 7,
+      "con_datos": 3,
+      "seg_mediana": 1.3,
+      "seg_total": 484.9
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 16,
+      "con_datos": 4,
+      "seg_mediana": 0.9,
+      "seg_total": 290.2
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "carrefour.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 11250,
+      "Segundos": 412.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "cubicashop.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 9430,
+      "Segundos": 272.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "distribuidoratiraxi.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 833,
+      "Segundos": 196.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "elmundodelplomero.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2074,
+      "Segundos": 166.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "maxdeportes.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1642,
+      "Segundos": 161.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "tecnoventas.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 2011,
+      "Segundos": 71.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "electronicaciares.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 834,
+      "Segundos": 69.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "horizontesrl.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 0,
+      "Segundos": 61.1,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "wawamayorista.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 768,
+      "Segundos": 55.1,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "vineriasanjuan.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2001,
+      "Segundos": 53.0,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 58,
+    "sin precios publicados (746 productos)": 1
+  },
+  "seg_total": 1014.3
+}

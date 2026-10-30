@@ -1,0 +1,171 @@
+{
+  "provincia": "Chaco",
+  "fecha": "2026-10-29T21:08:55",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "La Anonima",
+    "Vea"
+  ],
+  "relevados": 1279,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 583.6,
+  "verificacion": {
+    "OTRA_UBICACION": 748,
+    "SIN_EVIDENCIA": 319,
+    "VERIFICADA": 93,
+    "AGREGADOR_O_DIRECTORIO": 54,
+    "NO_ES_SITIO_PROPIO": 36,
+    "NO_RESPONDE": 25,
+    "DEBIL": 3,
+    "REDIRIGE_A_OTRO_DOMINIO": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 179,
+    "OTRA_UBICACION (Exterior)": 164,
+    "OTRA_UBICACION (CABA)": 145,
+    "OTRA_UBICACION (AMBA, indicio)": 93,
+    "OTRA_UBICACION (Santa Fe)": 37,
+    "OTRA_UBICACION (Cordoba)": 34,
+    "OTRA_UBICACION (Corrientes)": 24,
+    "OTRA_UBICACION (Mendoza)": 9,
+    "OTRA_UBICACION (Tucuman)": 7,
+    "OTRA_UBICACION (Santiago del Estero)": 7,
+    "OTRA_UBICACION (San Juan)": 7,
+    "OTRA_UBICACION (Entre Rios)": 7,
+    "OTRA_UBICACION (Salta)": 5,
+    "OTRA_UBICACION (Misiones)": 5,
+    "OTRA_UBICACION (San Luis)": 3
+  },
+  "con_zona": 66,
+  "seg_scrape": 638.0,
+  "verificados": 93,
+  "finales_en_excel": 45,
+  "descartados_ubicacion": 1186,
+  "descartados_sin_datos": 48,
+  "scrapeados": 83,
+  "scrape_estados": {
+    "sin datos": 48,
+    "ok": 34,
+    "cadena nacional": 6,
+    "SEPA (1 sucursales)": 3,
+    "SEPA (2 sucursales)": 1,
+    "parcial (tope)": 1
+  },
+  "productos_totales": 38475,
+  "seg_por_local_mediana": 25.0,
+  "seg_por_local_p90": 85.21999999999998,
+  "seg_suma_locales": 3740.8999999999996,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 35,
+      "con_datos": 0,
+      "seg_mediana": 23.3,
+      "seg_total": 803.8
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 23,
+      "con_datos": 22,
+      "seg_mediana": 48.6,
+      "seg_total": 1567.1
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 4,
+      "con_datos": 0,
+      "seg_mediana": 1.4,
+      "seg_total": 21.5
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 21,
+      "con_datos": 13,
+      "seg_mediana": 13.3,
+      "seg_total": 1348.5
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "ferreteriaelmolino.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1557,
+      "Segundos": 601.9,
+      "Estado scrape": "parcial (tope)"
+    },
+    {
+      "Dominio": "hosannajoyas.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3403,
+      "Segundos": 334.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lenceriajulieta.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2610,
+      "Segundos": 326.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "papeleramarano.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 697,
+      "Segundos": 170.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "libreriadelapaz.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 6295,
+      "Segundos": 168.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "masinherramientas.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 3218,
+      "Segundos": 136.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "ryrcomputacion.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 96.6,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "opticacristal.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1637,
+      "Segundos": 93.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "gtmayorista.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 721,
+      "Segundos": 85.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "ferreterialarural.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 6382,
+      "Segundos": 82.9,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 48
+  },
+  "seg_total": 1224.7
+}

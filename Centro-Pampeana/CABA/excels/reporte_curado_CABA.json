@@ -1,0 +1,208 @@
+{
+  "provincia": "CABA",
+  "fecha": "2026-10-27T15:41:44",
+  "workers_scrape": 8,
+  "workers_verificacion": 32,
+  "tope_seg_por_local": 900,
+  "agregadas_desde_sepa": [
+    "Vea",
+    "Disco",
+    "Axion Energy"
+  ],
+  "relevados": 4081,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Descartados (ubicacion)",
+    "Descartados (sin datos)"
+  ],
+  "seg_verificacion": 1182.8,
+  "verificacion": {
+    "OTRA_UBICACION": 1165,
+    "VERIFICADA": 1108,
+    "SIN_EVIDENCIA": 927,
+    "DEBIL": 558,
+    "NO_RESPONDE": 125,
+    "NO_ES_SITIO_PROPIO": 102,
+    "AGREGADOR_O_DIRECTORIO": 90,
+    "REDIRIGE_A_OTRO_DOMINIO": 6
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 414,
+    "OTRA_UBICACION (Exterior)": 329,
+    "OTRA_UBICACION (Cordoba)": 113,
+    "OTRA_UBICACION (Santa Fe)": 86,
+    "OTRA_UBICACION (Corrientes)": 34,
+    "OTRA_UBICACION (Mendoza)": 28,
+    "OTRA_UBICACION (San Luis)": 19,
+    "OTRA_UBICACION (Misiones)": 17,
+    "OTRA_UBICACION (Entre Rios)": 16,
+    "OTRA_UBICACION (Chaco)": 14,
+    "OTRA_UBICACION (Tucuman)": 14,
+    "OTRA_UBICACION (Neuquen)": 13,
+    "OTRA_UBICACION (Rio Negro)": 11,
+    "OTRA_UBICACION (Buenos Aires, indicio)": 11,
+    "OTRA_UBICACION (San Juan)": 9
+  },
+  "seg_scrape": 627.5,
+  "verificados": 1108,
+  "finales_en_excel": 558,
+  "descartados_ubicacion": 2973,
+  "descartados_sin_datos": 550,
+  "scrapeados": 558,
+  "scrape_estados": {
+    "sin datos": 550,
+    "ya scrapeada": 536,
+    "ok": 8,
+    "cadena nacional": 5,
+    "SEPA (65 sucursales)": 2,
+    "SEPA (23 sucursales)": 2,
+    "SEPA (402 sucursales)": 1,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (429 sucursales)": 1,
+    "SEPA (10 sucursales)": 1,
+    "SEPA (7 sucursales)": 1
+  },
+  "productos_totales": 5804,
+  "seg_por_local_mediana": 1.3,
+  "seg_por_local_p90": 7.7,
+  "seg_suma_locales": 3946.9000000000005,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 6,
+      "con_datos": 0,
+      "seg_mediana": 1.0,
+      "seg_total": 6.3
+    },
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 8,
+      "con_datos": 1,
+      "seg_mediana": 34.0,
+      "seg_total": 295.0
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 374,
+      "con_datos": 0,
+      "seg_mediana": 1.4,
+      "seg_total": 1306.0
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 12,
+      "con_datos": 0,
+      "seg_mediana": 28.0,
+      "seg_total": 359.8
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 12,
+      "con_datos": 3,
+      "seg_mediana": 120.8,
+      "seg_total": 1335.8
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 50,
+      "con_datos": 4,
+      "seg_mediana": 0.8,
+      "seg_total": 507.9
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 42,
+      "con_datos": 0,
+      "seg_mediana": 1.0,
+      "seg_total": 70.5
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 54,
+      "con_datos": 0,
+      "seg_mediana": 0.8,
+      "seg_total": 65.6
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "reoutlet.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 188.5,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "valeryaccesorios.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 1300,
+      "Segundos": 183.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "paogi.com",
+      "Plataforma usada": "shopify",
+      "Productos": 1440,
+      "Segundos": 182.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "potiershome.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 250,
+      "Segundos": 122.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "cxmayorista.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 0,
+      "Segundos": 120.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "binahdeco.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 0,
+      "Segundos": 120.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "masvision.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 0,
+      "Segundos": 120.8,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "pani.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 0,
+      "Segundos": 120.7,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "tresheraccesorios.com",
+      "Plataforma usada": "shopify",
+      "Productos": 0,
+      "Segundos": 120.7,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "tiomusa.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 0,
+      "Segundos": 120.7,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 535,
+    "HTTP 429": 7,
+    "JSONDecodeError: Expecting value: line 1": 5,
+    "HTTP 404": 2,
+    "JSONDecodeError: Expecting value: line 3": 1
+  },
+  "seg_total": 1813.6
+}

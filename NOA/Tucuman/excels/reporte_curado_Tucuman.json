@@ -1,0 +1,199 @@
+{
+  "provincia": "Tucuman",
+  "fecha": "2026-10-29T22:21:31",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "La Anonima",
+    "Vea"
+  ],
+  "relevados": 1133,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 491.7,
+  "verificacion": {
+    "OTRA_UBICACION": 582,
+    "SIN_EVIDENCIA": 266,
+    "VERIFICADA": 169,
+    "AGREGADOR_O_DIRECTORIO": 55,
+    "NO_ES_SITIO_PROPIO": 32,
+    "NO_RESPONDE": 27,
+    "DEBIL": 1,
+    "REDIRIGE_A_OTRO_DOMINIO": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 133,
+    "OTRA_UBICACION (CABA)": 111,
+    "OTRA_UBICACION (Exterior)": 105,
+    "OTRA_UBICACION (AMBA, indicio)": 83,
+    "OTRA_UBICACION (Cordoba)": 29,
+    "OTRA_UBICACION (Santa Fe)": 26,
+    "OTRA_UBICACION (Corrientes)": 25,
+    "OTRA_UBICACION (Santiago del Estero)": 9,
+    "OTRA_UBICACION (Misiones)": 8,
+    "OTRA_UBICACION (Chaco)": 7,
+    "OTRA_UBICACION (Entre Rios)": 6,
+    "OTRA_UBICACION (Mendoza)": 6,
+    "OTRA_UBICACION (CABA, indicio)": 4,
+    "OTRA_UBICACION (Neuquen, indicio)": 3,
+    "OTRA_UBICACION (San Luis)": 3
+  },
+  "con_zona": 118,
+  "seg_scrape": 884.4,
+  "verificados": 169,
+  "finales_en_excel": 73,
+  "descartados_ubicacion": 964,
+  "descartados_sin_datos": 96,
+  "scrapeados": 158,
+  "scrape_estados": {
+    "sin datos": 96,
+    "ok": 61,
+    "cadena nacional": 6,
+    "SEPA (1 sucursales)": 1,
+    "SEPA (4 sucursales)": 1,
+    "SEPA (5 sucursales)": 1,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (11 sucursales)": 1,
+    "parcial (tope)": 1
+  },
+  "productos_totales": 73098,
+  "seg_por_local_mediana": 11.1,
+  "seg_por_local_p90": 56.29000000000001,
+  "seg_suma_locales": 4706.6,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.6,
+      "seg_total": 0.6
+    },
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 4,
+      "con_datos": 1,
+      "seg_mediana": 31.9,
+      "seg_total": 133.9
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 59,
+      "con_datos": 0,
+      "seg_mediana": 10.1,
+      "seg_total": 671.2
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 7.5,
+      "seg_total": 7.5
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 49,
+      "con_datos": 43,
+      "seg_mediana": 21.3,
+      "seg_total": 2041.3
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 16,
+      "con_datos": 4,
+      "seg_mediana": 1.6,
+      "seg_total": 769.2
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 28,
+      "con_datos": 13,
+      "seg_mediana": 5.6,
+      "seg_total": 1082.9
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "vea.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 26010,
+      "Segundos": 601.4,
+      "Estado scrape": "parcial (tope)"
+    },
+    {
+      "Dominio": "kamikazebikes.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 3044,
+      "Segundos": 465.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "didactikidstucuman.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3314,
+      "Segundos": 264.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "tienda.pintureriaespana.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2157,
+      "Segundos": 203.1,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "pachamamabikeshop.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1997,
+      "Segundos": 195.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "loquetodasquieren.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1802,
+      "Segundos": 164.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "compustoretucuman.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1880,
+      "Segundos": 148.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lateliershop.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1496,
+      "Segundos": 135.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "fiestillon.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2095,
+      "Segundos": 119.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "farmaciasdelpueblo.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 3687,
+      "Segundos": 106.6,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 92,
+    "sin precios publicados (625 productos)": 1,
+    "JSONDecodeError: Expecting value: line 1": 1,
+    "sin precios publicados (52 productos)": 1,
+    "sin precios publicados (611 productos)": 1
+  },
+  "seg_total": 1380.1
+}

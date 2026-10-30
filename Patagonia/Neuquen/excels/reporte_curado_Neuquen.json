@@ -1,0 +1,198 @@
+{
+  "provincia": "Neuquen",
+  "fecha": "2026-10-29T21:45:47",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 1146,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 441.2,
+  "verificacion": {
+    "OTRA_UBICACION": 586,
+    "SIN_EVIDENCIA": 264,
+    "VERIFICADA": 151,
+    "AGREGADOR_O_DIRECTORIO": 62,
+    "NO_ES_SITIO_PROPIO": 36,
+    "NO_RESPONDE": 26,
+    "DEBIL": 20,
+    "REDIRIGE_A_OTRO_DOMINIO": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 137,
+    "OTRA_UBICACION (Exterior)": 110,
+    "OTRA_UBICACION (CABA)": 105,
+    "OTRA_UBICACION (AMBA, indicio)": 77,
+    "OTRA_UBICACION (Cordoba)": 33,
+    "OTRA_UBICACION (Corrientes)": 24,
+    "OTRA_UBICACION (Santa Fe)": 22,
+    "OTRA_UBICACION (Rio Negro)": 18,
+    "OTRA_UBICACION (Mendoza)": 15,
+    "OTRA_UBICACION (Chaco)": 9,
+    "OTRA_UBICACION (Entre Rios)": 5,
+    "OTRA_UBICACION (Santiago del Estero)": 5,
+    "OTRA_UBICACION (Misiones)": 4,
+    "OTRA_UBICACION (Tucuman)": 4,
+    "OTRA_UBICACION (Salta)": 3
+  },
+  "con_zona": 112,
+  "seg_scrape": 858.8,
+  "verificados": 151,
+  "finales_en_excel": 47,
+  "descartados_ubicacion": 995,
+  "descartados_sin_datos": 104,
+  "scrapeados": 139,
+  "scrape_estados": {
+    "sin datos": 104,
+    "ok": 35,
+    "SEPA (1 sucursales)": 5,
+    "cadena nacional": 3,
+    "SEPA (2 sucursales)": 2,
+    "SEPA (22 sucursales)": 1,
+    "SEPA (31 sucursales)": 1
+  },
+  "productos_totales": 60947,
+  "seg_por_local_mediana": 22.7,
+  "seg_por_local_p90": 62.68000000000001,
+  "seg_suma_locales": 4843.0,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 2,
+      "con_datos": 2,
+      "seg_mediana": 64.7,
+      "seg_total": 129.4
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 77,
+      "con_datos": 0,
+      "seg_mediana": 24.7,
+      "seg_total": 1825.7
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 45.2,
+      "seg_total": 45.2
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 32.5,
+      "seg_total": 32.5
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 22,
+      "con_datos": 16,
+      "seg_mediana": 16.4,
+      "seg_total": 1075.5
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 11,
+      "con_datos": 6,
+      "seg_mediana": 20.4,
+      "seg_total": 954.4
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 25,
+      "con_datos": 9,
+      "seg_mediana": 4.6,
+      "seg_total": 780.3
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "vea.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 22815,
+      "Segundos": 548.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "suluz.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 4732,
+      "Segundos": 449.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "compulider.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1173,
+      "Segundos": 239.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "siglo21myh.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1955,
+      "Segundos": 197.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "adharanqn.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2109,
+      "Segundos": 137.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "mimo.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 10955,
+      "Segundos": 121.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "oncity.com",
+      "Plataforma usada": "vtex",
+      "Productos": 3771,
+      "Segundos": 120.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "farmaciadelpueblo.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 3370,
+      "Segundos": 106.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "tiendapinkhouse.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 897,
+      "Segundos": 84.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "fullescabio.com",
+      "Plataforma usada": "magento(playwright)",
+      "Productos": 220,
+      "Segundos": 84.3,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 98,
+    "sin precios publicados (89 productos)": 1,
+    "sin precios publicados (573 productos)": 1,
+    "sin precios publicados (43 productos)": 1,
+    "sin precios publicados (208 productos)": 1,
+    "sin precios publicados (611 productos)": 1,
+    "sin precios publicados (69 productos)": 1
+  },
+  "seg_total": 1304.6
+}

@@ -1,0 +1,176 @@
+{
+  "provincia": "Santa-Cruz",
+  "fecha": "2026-10-29T22:07:33",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [],
+  "relevados": 1194,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 499.4,
+  "verificacion": {
+    "OTRA_UBICACION": 669,
+    "SIN_EVIDENCIA": 328,
+    "VERIFICADA": 76,
+    "AGREGADOR_O_DIRECTORIO": 52,
+    "NO_RESPONDE": 33,
+    "NO_ES_SITIO_PROPIO": 31,
+    "DEBIL": 4,
+    "REDIRIGE_A_OTRO_DOMINIO": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Exterior)": 147,
+    "OTRA_UBICACION (Buenos Aires)": 141,
+    "OTRA_UBICACION (CABA)": 122,
+    "OTRA_UBICACION (AMBA, indicio)": 84,
+    "OTRA_UBICACION (Santa Fe)": 35,
+    "OTRA_UBICACION (Cordoba)": 31,
+    "OTRA_UBICACION (Corrientes)": 21,
+    "OTRA_UBICACION (San Juan)": 12,
+    "OTRA_UBICACION (Mendoza)": 10,
+    "OTRA_UBICACION (Chaco)": 8,
+    "OTRA_UBICACION (Misiones)": 8,
+    "OTRA_UBICACION (Santiago del Estero)": 6,
+    "OTRA_UBICACION (Chubut)": 6,
+    "OTRA_UBICACION (Tucuman)": 5,
+    "OTRA_UBICACION (Salta)": 4
+  },
+  "con_zona": 61,
+  "seg_scrape": 165.7,
+  "verificados": 76,
+  "finales_en_excel": 14,
+  "descartados_ubicacion": 1118,
+  "descartados_sin_datos": 62,
+  "scrapeados": 73,
+  "scrape_estados": {
+    "sin datos": 62,
+    "ok": 11,
+    "SEPA (3 sucursales)": 1,
+    "SEPA (27 sucursales)": 1,
+    "cadena nacional": 1
+  },
+  "productos_totales": 5243,
+  "seg_por_local_mediana": 28.8,
+  "seg_por_local_p90": 44.779999999999994,
+  "seg_suma_locales": 1719.0,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 42,
+      "con_datos": 0,
+      "seg_mediana": 33.0,
+      "seg_total": 1349.0
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 2,
+      "con_datos": 1,
+      "seg_mediana": 23.8,
+      "seg_total": 47.5
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 9,
+      "con_datos": 7,
+      "seg_mediana": 14.7,
+      "seg_total": 200.2
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.7,
+      "seg_total": 0.7
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 19,
+      "con_datos": 3,
+      "seg_mediana": 1.0,
+      "seg_total": 121.6
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "neomatriogallegos.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2429,
+      "Segundos": 61.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "diarco.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 53.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "zoco.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 626,
+      "Segundos": 51.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "proveedoresdelsur.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 47.0,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "contractors1000.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 46.0,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "equipment10.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 45.6,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "lolamorajoyeria.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 45.1,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "guiaindustrial.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 44.9,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "findglocal.com",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 44.3,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "lidersoluciones.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 43.7,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 60,
+    "sin precios publicados (573 productos)": 1,
+    "sin precios publicados (7 productos)": 1
+  },
+  "seg_total": 668.6
+}

@@ -39,3 +39,17 @@ node_modules/
 
 # tareas temporales del agente
 tasks/
+
+# SEPA: detalle por sucursal (regenerable desde el zip)
+datos/
+sepa_*.zip
+
+# cache de Georef (se regenera solo)
+_Nacional/geo/cache_ubicacion.json
+
+# sesiones del navegador (Playwright MCP)
+.playwright-mcp/
+
+# datos de fuentes externas con restricciones de uso (Alfabeta, MercadoLibre, inmuebles) y logs de corridas
+reportes/fuentes/
+reportes/curado/

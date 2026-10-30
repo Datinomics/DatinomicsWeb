@@ -1,0 +1,200 @@
+{
+  "provincia": "Salta",
+  "fecha": "2026-10-29T21:47:25",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 1481,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 625.1,
+  "verificacion": {
+    "OTRA_UBICACION": 880,
+    "SIN_EVIDENCIA": 327,
+    "VERIFICADA": 116,
+    "AGREGADOR_O_DIRECTORIO": 77,
+    "NO_RESPONDE": 42,
+    "NO_ES_SITIO_PROPIO": 39
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Santa Fe)": 177,
+    "OTRA_UBICACION (Buenos Aires)": 171,
+    "OTRA_UBICACION (CABA)": 145,
+    "OTRA_UBICACION (Exterior)": 144,
+    "OTRA_UBICACION (AMBA, indicio)": 91,
+    "OTRA_UBICACION (Cordoba)": 40,
+    "OTRA_UBICACION (Corrientes)": 27,
+    "OTRA_UBICACION (Tucuman)": 12,
+    "OTRA_UBICACION (Entre Rios)": 11,
+    "OTRA_UBICACION (Mendoza)": 10,
+    "OTRA_UBICACION (Santiago del Estero)": 7,
+    "OTRA_UBICACION (Misiones)": 6,
+    "OTRA_UBICACION (Chaco)": 5,
+    "OTRA_UBICACION (La Pampa)": 4,
+    "OTRA_UBICACION (Jujuy)": 4
+  },
+  "con_zona": 90,
+  "seg_scrape": 685.0,
+  "verificados": 116,
+  "finales_en_excel": 40,
+  "descartados_ubicacion": 1365,
+  "descartados_sin_datos": 76,
+  "scrapeados": 104,
+  "scrape_estados": {
+    "sin datos": 76,
+    "ok": 27,
+    "cadena nacional": 5,
+    "SEPA (6 sucursales)": 2,
+    "SEPA (1 sucursales)": 2,
+    "SEPA (4 sucursales)": 1,
+    "SEPA (24 sucursales)": 1,
+    "SEPA (10 sucursales)": 1,
+    "parcial (tope)": 1
+  },
+  "productos_totales": 13311,
+  "seg_por_local_mediana": 24.15,
+  "seg_por_local_p90": 50.72,
+  "seg_suma_locales": 3422.6,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.7,
+      "seg_total": 0.7
+    },
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 25.2,
+      "seg_total": 25.2
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 54,
+      "con_datos": 0,
+      "seg_mediana": 28.0,
+      "seg_total": 1380.0
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 2,
+      "con_datos": 2,
+      "seg_mediana": 41.8,
+      "seg_total": 83.6
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 19,
+      "con_datos": 17,
+      "seg_mediana": 9.5,
+      "seg_total": 641.3
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 4,
+      "con_datos": 1,
+      "seg_mediana": 0.9,
+      "seg_total": 26.0
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 23,
+      "con_datos": 8,
+      "seg_mediana": 7.8,
+      "seg_total": 1265.8
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "martel.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 2128,
+      "Segundos": 602.6,
+      "Estado scrape": "parcial (tope)"
+    },
+    {
+      "Dominio": "mtbsalta.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 148,
+      "Segundos": 168.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "rvs-store.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1216,
+      "Segundos": 137.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "librerialerma.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1535,
+      "Segundos": 130.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "viavinilo.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1204,
+      "Segundos": 102.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "elprincipitomayorista.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1082,
+      "Segundos": 77.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "cocoaccesorios.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1076,
+      "Segundos": 74.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "bicicletaspostigo.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 221,
+      "Segundos": 74.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "urbanococinaamericana.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 64.6,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "diarco.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 62.1,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 68,
+    "sin precios publicados (9 productos)": 1,
+    "sin precios publicados (22 productos)": 1,
+    "sin precios publicados (204 productos)": 1,
+    "sin precios publicados (573 productos)": 1,
+    "JSONDecodeError: Expecting value: line 1": 1,
+    "sin precios publicados (226 productos)": 1,
+    "sin precios publicados (159 productos)": 1,
+    "sin precios publicados (611 productos)": 1
+  },
+  "seg_total": 1315.8
+}

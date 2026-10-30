@@ -1,0 +1,187 @@
+{
+  "provincia": "San-Luis",
+  "fecha": "2026-10-29T22:07:33",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 790,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 333.4,
+  "verificacion": {
+    "OTRA_UBICACION": 423,
+    "SIN_EVIDENCIA": 186,
+    "VERIFICADA": 85,
+    "AGREGADOR_O_DIRECTORIO": 50,
+    "NO_ES_SITIO_PROPIO": 24,
+    "NO_RESPONDE": 19,
+    "REDIRIGE_A_OTRO_DOMINIO": 2,
+    "DEBIL": 1
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 121,
+    "OTRA_UBICACION (CABA)": 92,
+    "OTRA_UBICACION (Exterior)": 81,
+    "OTRA_UBICACION (AMBA, indicio)": 41,
+    "OTRA_UBICACION (Santa Fe)": 21,
+    "OTRA_UBICACION (Cordoba)": 18,
+    "OTRA_UBICACION (Corrientes)": 13,
+    "OTRA_UBICACION (Mendoza)": 5,
+    "OTRA_UBICACION (Chaco)": 3,
+    "OTRA_UBICACION (Salta)": 3,
+    "OTRA_UBICACION (Entre Rios)": 3,
+    "OTRA_UBICACION (CABA, indicio)": 3,
+    "OTRA_UBICACION (Jujuy)": 2,
+    "OTRA_UBICACION (San Juan)": 2,
+    "OTRA_UBICACION (Tucuman)": 2
+  },
+  "con_zona": 71,
+  "seg_scrape": 449.6,
+  "verificados": 85,
+  "finales_en_excel": 27,
+  "descartados_ubicacion": 705,
+  "descartados_sin_datos": 58,
+  "scrapeados": 77,
+  "scrape_estados": {
+    "sin datos": 58,
+    "ok": 19,
+    "cadena nacional": 5,
+    "SEPA (2 sucursales)": 2,
+    "SEPA (3 sucursales)": 1
+  },
+  "productos_totales": 20992,
+  "seg_por_local_mediana": 19.7,
+  "seg_por_local_p90": 85.18000000000018,
+  "seg_suma_locales": 3038.5000000000005,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 36.0,
+      "seg_total": 36.0
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 36,
+      "con_datos": 0,
+      "seg_mediana": 27.9,
+      "seg_total": 887.6
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 3,
+      "con_datos": 2,
+      "seg_mediana": 151.7,
+      "seg_total": 402.6
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 9,
+      "con_datos": 8,
+      "seg_mediana": 72.9,
+      "seg_total": 892.6
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 4,
+      "con_datos": 0,
+      "seg_mediana": 0.8,
+      "seg_total": 5.0
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 24,
+      "con_datos": 9,
+      "seg_mediana": 1.9,
+      "seg_total": 814.7
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "comercialsanluis.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 624,
+      "Segundos": 408.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "opticamoyano.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3414,
+      "Segundos": 309.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "pablocomputacion.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3337,
+      "Segundos": 269.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "vinosamerica.com",
+      "Plataforma usada": "shopify",
+      "Productos": 3517,
+      "Segundos": 227.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "bruselasbeer.com",
+      "Plataforma usada": "shopify",
+      "Productos": 1302,
+      "Segundos": 151.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lapizstore.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1863,
+      "Segundos": 117.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "tupachogar.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1113,
+      "Segundos": 114.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "pintolindo.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1166,
+      "Segundos": 103.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "sanluisya.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 651,
+      "Segundos": 72.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "urbanococinaamericana.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 65.6,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 54,
+    "HTTP 404": 1,
+    "sin precios publicados (573 productos)": 1,
+    "sin precios publicados (122 productos)": 1,
+    "sin precios publicados (611 productos)": 1
+  },
+  "seg_total": 787.2
+}

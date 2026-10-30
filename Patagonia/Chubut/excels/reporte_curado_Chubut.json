@@ -1,0 +1,202 @@
+{
+  "provincia": "Chubut",
+  "fecha": "2026-10-29T21:08:55",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea",
+    "Cooperativa Obrera Limitada de Consumo y Vivienda"
+  ],
+  "relevados": 1157,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 534.7,
+  "verificacion": {
+    "OTRA_UBICACION": 595,
+    "SIN_EVIDENCIA": 277,
+    "VERIFICADA": 144,
+    "AGREGADOR_O_DIRECTORIO": 68,
+    "NO_ES_SITIO_PROPIO": 34,
+    "NO_RESPONDE": 29,
+    "DEBIL": 10
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 132,
+    "OTRA_UBICACION (CABA)": 116,
+    "OTRA_UBICACION (Exterior)": 111,
+    "OTRA_UBICACION (AMBA, indicio)": 82,
+    "OTRA_UBICACION (Cordoba)": 32,
+    "OTRA_UBICACION (Santa Fe)": 29,
+    "OTRA_UBICACION (Corrientes)": 24,
+    "OTRA_UBICACION (Neuquen)": 8,
+    "OTRA_UBICACION (San Juan)": 8,
+    "OTRA_UBICACION (Mendoza)": 7,
+    "OTRA_UBICACION (Rio Negro)": 6,
+    "OTRA_UBICACION (Chaco)": 6,
+    "OTRA_UBICACION (Tucuman)": 5,
+    "OTRA_UBICACION (Misiones)": 4,
+    "OTRA_UBICACION (Entre Rios)": 4
+  },
+  "con_zona": 116,
+  "seg_scrape": 753.8,
+  "verificados": 144,
+  "finales_en_excel": 46,
+  "descartados_ubicacion": 1013,
+  "descartados_sin_datos": 98,
+  "scrapeados": 134,
+  "scrape_estados": {
+    "sin datos": 98,
+    "ok": 36,
+    "cadena nacional": 4,
+    "SEPA (6 sucursales)": 1,
+    "SEPA (4 sucursales)": 1,
+    "SEPA (1 sucursales)": 1,
+    "SEPA (24 sucursales)": 1,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (8 sucursales)": 1
+  },
+  "productos_totales": 26636,
+  "seg_por_local_mediana": 26.1,
+  "seg_por_local_p90": 46.13000000000002,
+  "seg_suma_locales": 4005.3,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 3.6,
+      "seg_total": 3.6
+    },
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 2,
+      "con_datos": 2,
+      "seg_mediana": 45.0,
+      "seg_total": 90.1
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 69,
+      "con_datos": 0,
+      "seg_mediana": 27.8,
+      "seg_total": 1838.9
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 2,
+      "con_datos": 0,
+      "seg_mediana": 39.2,
+      "seg_total": 78.4
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 140.9,
+      "seg_total": 140.9
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 28,
+      "con_datos": 24,
+      "seg_mediana": 19.8,
+      "seg_total": 1498.1
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 4,
+      "con_datos": 1,
+      "seg_mediana": 1.0,
+      "seg_total": 107.7
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 27,
+      "con_datos": 8,
+      "seg_mediana": 1.1,
+      "seg_total": 247.6
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "boutiquedellibromadryn.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 5500,
+      "Segundos": 576.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "abgmayorista.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1215,
+      "Segundos": 147.1,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "neomat.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1834,
+      "Segundos": 141.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "triaxgo.com.ar",
+      "Plataforma usada": "shopify",
+      "Productos": 5779,
+      "Segundos": 140.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "farmaciaspatagonicas.com",
+      "Plataforma usada": "vtex",
+      "Productos": 2617,
+      "Segundos": 105.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "aquelarretiendaonline.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 964,
+      "Segundos": 100.9,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "unilocal.net",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 74.3,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "elobreromuebles.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 534,
+      "Segundos": 64.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "magico.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 360,
+      "Segundos": 62.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "mariskito.com",
+      "Plataforma usada": "prestashop(playwright)",
+      "Productos": 0,
+      "Segundos": 52.4,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 97,
+    "JSONDecodeError: Expecting value: line 1": 1
+  },
+  "seg_total": 1294.1
+}

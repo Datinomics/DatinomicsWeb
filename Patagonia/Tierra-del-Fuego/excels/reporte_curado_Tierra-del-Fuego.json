@@ -1,0 +1,181 @@
+{
+  "provincia": "Tierra-del-Fuego",
+  "fecha": "2026-10-29T22:20:41",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [],
+  "relevados": 757,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 342.4,
+  "verificacion": {
+    "OTRA_UBICACION": 451,
+    "SIN_EVIDENCIA": 162,
+    "VERIFICADA": 66,
+    "AGREGADOR_O_DIRECTORIO": 40,
+    "NO_ES_SITIO_PROPIO": 24,
+    "NO_RESPONDE": 14
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 110,
+    "OTRA_UBICACION (CABA)": 90,
+    "OTRA_UBICACION (Exterior)": 78,
+    "OTRA_UBICACION (AMBA, indicio)": 67,
+    "OTRA_UBICACION (Cordoba)": 25,
+    "OTRA_UBICACION (Santa Fe)": 19,
+    "OTRA_UBICACION (Corrientes)": 15,
+    "OTRA_UBICACION (Tucuman)": 5,
+    "OTRA_UBICACION (Mendoza)": 5,
+    "OTRA_UBICACION (Misiones)": 5,
+    "OTRA_UBICACION (Neuquen)": 4,
+    "OTRA_UBICACION (Chaco)": 4,
+    "OTRA_UBICACION (Santiago del Estero)": 3,
+    "OTRA_UBICACION (Chubut)": 2,
+    "OTRA_UBICACION (Buenos Aires, indicio)": 2
+  },
+  "con_zona": 38,
+  "seg_scrape": 601.3,
+  "verificados": 66,
+  "finales_en_excel": 29,
+  "descartados_ubicacion": 691,
+  "descartados_sin_datos": 37,
+  "scrapeados": 63,
+  "scrape_estados": {
+    "sin datos": 37,
+    "ok": 26,
+    "SEPA (3 sucursales)": 1,
+    "SEPA (11 sucursales)": 1,
+    "cadena nacional": 1
+  },
+  "productos_totales": 41063,
+  "seg_por_local_mediana": 9.9,
+  "seg_por_local_p90": 70.2,
+  "seg_suma_locales": 2357.2,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 2,
+      "con_datos": 2,
+      "seg_mediana": 32.8,
+      "seg_total": 65.7
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 22,
+      "con_datos": 0,
+      "seg_mediana": 10.0,
+      "seg_total": 294.7
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 24.4,
+      "seg_total": 24.4
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 15,
+      "con_datos": 12,
+      "seg_mediana": 12.0,
+      "seg_total": 1026.8
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 54.8,
+      "seg_total": 54.8
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 22,
+      "con_datos": 10,
+      "seg_mediana": 1.4,
+      "seg_total": 890.8
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "karukinkaushuaia.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 5500,
+      "Segundos": 545.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "rayuelaush.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 17589,
+      "Segundos": 385.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "casazeila.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3633,
+      "Segundos": 206.3,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "riograndestore.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1080,
+      "Segundos": 145.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "turismoenushuaia.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 58,
+      "Segundos": 87.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "arcoirislibreria.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 2696,
+      "Segundos": 75.0,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "quercialihogar.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 658,
+      "Segundos": 70.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "hcjoyeriasushuaia.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 830,
+      "Segundos": 68.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "casafuegia.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1139,
+      "Segundos": 66.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "scandinavian.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 4406,
+      "Segundos": 54.8,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 35,
+    "sin precios publicados (45 productos)": 1,
+    "sin precios publicados (573 productos)": 1
+  },
+  "seg_total": 946.3
+}

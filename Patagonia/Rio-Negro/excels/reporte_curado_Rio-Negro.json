@@ -1,0 +1,189 @@
+{
+  "provincia": "Rio-Negro",
+  "fecha": "2026-10-29T21:46:27",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 1155,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 454.1,
+  "verificacion": {
+    "OTRA_UBICACION": 627,
+    "SIN_EVIDENCIA": 238,
+    "VERIFICADA": 156,
+    "AGREGADOR_O_DIRECTORIO": 65,
+    "NO_ES_SITIO_PROPIO": 38,
+    "NO_RESPONDE": 23,
+    "DEBIL": 8
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 150,
+    "OTRA_UBICACION (CABA)": 147,
+    "OTRA_UBICACION (AMBA, indicio)": 93,
+    "OTRA_UBICACION (Exterior)": 87,
+    "OTRA_UBICACION (Santa Fe)": 33,
+    "OTRA_UBICACION (Cordoba)": 29,
+    "OTRA_UBICACION (Corrientes)": 21,
+    "OTRA_UBICACION (Neuquen)": 12,
+    "OTRA_UBICACION (Misiones)": 6,
+    "OTRA_UBICACION (Mendoza)": 6,
+    "OTRA_UBICACION (Entre Rios)": 5,
+    "OTRA_UBICACION (Santiago del Estero)": 5,
+    "OTRA_UBICACION (Tucuman)": 4,
+    "OTRA_UBICACION (San Juan)": 4,
+    "OTRA_UBICACION (Buenos Aires, indicio)": 4
+  },
+  "con_zona": 88,
+  "seg_scrape": 806.2,
+  "verificados": 156,
+  "finales_en_excel": 55,
+  "descartados_ubicacion": 999,
+  "descartados_sin_datos": 101,
+  "scrapeados": 147,
+  "scrape_estados": {
+    "sin datos": 101,
+    "ok": 46,
+    "cadena nacional": 4,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (4 sucursales)": 1,
+    "SEPA (25 sucursales)": 1,
+    "SEPA (31 sucursales)": 1,
+    "SEPA (3 sucursales)": 1
+  },
+  "productos_totales": 79038,
+  "seg_por_local_mediana": 20.7,
+  "seg_por_local_p90": 73.98000000000005,
+  "seg_suma_locales": 5675.9,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "magento(playwright)",
+      "locales": 1,
+      "con_datos": 1,
+      "seg_mediana": 78.6,
+      "seg_total": 78.6
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 78,
+      "con_datos": 0,
+      "seg_mediana": 20.2,
+      "seg_total": 1359.4
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 2,
+      "con_datos": 2,
+      "seg_mediana": 39.0,
+      "seg_total": 77.9
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 27,
+      "con_datos": 22,
+      "seg_mediana": 21.3,
+      "seg_total": 2308.5
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 6,
+      "con_datos": 4,
+      "seg_mediana": 23.5,
+      "seg_total": 555.4
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 33,
+      "con_datos": 17,
+      "seg_mediana": 6.0,
+      "seg_total": 1296.1
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "unmundodecosas.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 5500,
+      "Segundos": 528.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "vea.com.ar",
+      "Plataforma usada": "vtex",
+      "Productos": 26238,
+      "Segundos": 444.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "magnapel.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 4466,
+      "Segundos": 439.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "complementoselectricos.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 3680,
+      "Segundos": 334.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "shoppingonelli.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 708,
+      "Segundos": 326.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "piuartebariloche.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 7462,
+      "Segundos": 202.7,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lafabricamuebles.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 485,
+      "Segundos": 197.6,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lamascoteriavirtual.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1606,
+      "Segundos": 170.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lubranohogar.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 1954,
+      "Segundos": 170.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "catalanabariloche.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1372,
+      "Segundos": 118.5,
+      "Estado scrape": "ok"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 97,
+    "sin precios publicados (60 productos)": 1,
+    "sin precios publicados (470 productos)": 1,
+    "sin precios publicados (573 productos)": 1,
+    "sin precios publicados (611 productos)": 1
+  },
+  "seg_total": 1265.0
+}

@@ -14,6 +14,11 @@ import time
 import pandas as pd
 import requests
 
+try:
+    from . import diag
+except ImportError:  # corrido como script suelto
+    diag = None
+
 socket.setdefaulttimeout(30)
 H = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
      "(KHTML, like Gecko) Chrome/124.0 Safari/537.36",
@@ -64,6 +69,8 @@ def scrape_vtex(base, tienda, max_cats=0, delay=0.25):
         cats = cats[:max_cats]
     by_sku = {}
     for i, (cidpath, cname) in enumerate(cats, 1):
+        if diag and diag.corto_por_tope():
+            break
         frm = 0
         while frm < 2500:
             url = (f"{base}/api/catalog_system/pub/products/search/"

@@ -1,0 +1,193 @@
+{
+  "provincia": "Santiago-del-Estero",
+  "fecha": "2026-10-29T22:18:43",
+  "workers_scrape": 12,
+  "workers_verificacion": 24,
+  "tope_seg_por_local": 600,
+  "agregadas_desde_sepa": [
+    "Vea"
+  ],
+  "relevados": 1111,
+  "duplicados_quitados": 0,
+  "hojas_leidas": [
+    "Tiendas con web",
+    "Candidatos (revisar)",
+    "Descartados"
+  ],
+  "seg_verificacion": 524.5,
+  "verificacion": {
+    "OTRA_UBICACION": 655,
+    "SIN_EVIDENCIA": 243,
+    "VERIFICADA": 98,
+    "AGREGADOR_O_DIRECTORIO": 61,
+    "NO_ES_SITIO_PROPIO": 31,
+    "NO_RESPONDE": 23
+  },
+  "otra_ubicacion_detalle": {
+    "OTRA_UBICACION (Buenos Aires)": 153,
+    "OTRA_UBICACION (CABA)": 129,
+    "OTRA_UBICACION (Exterior)": 125,
+    "OTRA_UBICACION (AMBA, indicio)": 80,
+    "OTRA_UBICACION (Cordoba)": 41,
+    "OTRA_UBICACION (Santa Fe)": 32,
+    "OTRA_UBICACION (Corrientes)": 26,
+    "OTRA_UBICACION (Tucuman)": 11,
+    "OTRA_UBICACION (Entre Rios)": 9,
+    "OTRA_UBICACION (Chaco)": 8,
+    "OTRA_UBICACION (San Juan)": 8,
+    "OTRA_UBICACION (Mendoza)": 5,
+    "OTRA_UBICACION (Salta)": 4,
+    "OTRA_UBICACION (San Luis)": 4,
+    "OTRA_UBICACION (Misiones)": 4
+  },
+  "con_zona": 81,
+  "seg_scrape": 480.1,
+  "verificados": 98,
+  "finales_en_excel": 32,
+  "descartados_ubicacion": 1013,
+  "descartados_sin_datos": 66,
+  "scrapeados": 87,
+  "scrape_estados": {
+    "sin datos": 66,
+    "ok": 21,
+    "cadena nacional": 8,
+    "SEPA (2 sucursales)": 1,
+    "SEPA (1 sucursales)": 1,
+    "SEPA (3 sucursales)": 1
+  },
+  "productos_totales": 19883,
+  "seg_por_local_mediana": 28.0,
+  "seg_por_local_p90": 69.16000000000004,
+  "seg_suma_locales": 3086.3,
+  "por_plataforma": [
+    {
+      "Plataforma usada": "error:JSONDecodeError",
+      "locales": 1,
+      "con_datos": 0,
+      "seg_mediana": 0.6,
+      "seg_total": 0.6
+    },
+    {
+      "Plataforma usada": "no-soportada",
+      "locales": 47,
+      "con_datos": 0,
+      "seg_mediana": 28.0,
+      "seg_total": 1300.5
+    },
+    {
+      "Plataforma usada": "prestashop(playwright)",
+      "locales": 3,
+      "con_datos": 0,
+      "seg_mediana": 30.6,
+      "seg_total": 91.9
+    },
+    {
+      "Plataforma usada": "shopify",
+      "locales": 2,
+      "con_datos": 1,
+      "seg_mediana": 51.8,
+      "seg_total": 103.5
+    },
+    {
+      "Plataforma usada": "tiendanube",
+      "locales": 16,
+      "con_datos": 15,
+      "seg_mediana": 31.0,
+      "seg_total": 1159.7
+    },
+    {
+      "Plataforma usada": "vtex",
+      "locales": 5,
+      "con_datos": 2,
+      "seg_mediana": 1.0,
+      "seg_total": 63.1
+    },
+    {
+      "Plataforma usada": "woocommerce",
+      "locales": 13,
+      "con_datos": 3,
+      "seg_mediana": 1.1,
+      "seg_total": 367.0
+    }
+  ],
+  "mas_lentos": [
+    {
+      "Dominio": "aymjoyas.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 4596,
+      "Segundos": 396.2,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "elsol.com.ar",
+      "Plataforma usada": "no-soportada",
+      "Productos": 0,
+      "Segundos": 157.1,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "superastorga.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1569,
+      "Segundos": 147.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "joyexplaza.com",
+      "Plataforma usada": "woocommerce",
+      "Productos": 461,
+      "Segundos": 147.1,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "lamaletasgo.mitiendanube.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1458,
+      "Segundos": 125.8,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "mccenter.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1133,
+      "Segundos": 107.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "piccolino.com.ar",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1118,
+      "Segundos": 100.5,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "bicperbanda.com",
+      "Plataforma usada": "tiendanube",
+      "Productos": 1030,
+      "Segundos": 90.4,
+      "Estado scrape": "ok"
+    },
+    {
+      "Dominio": "diarco.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 72.4,
+      "Estado scrape": "sin datos"
+    },
+    {
+      "Dominio": "urbanococinaamericana.com.ar",
+      "Plataforma usada": "woocommerce",
+      "Productos": 0,
+      "Segundos": 67.0,
+      "Estado scrape": "sin datos"
+    }
+  ],
+  "motivos_sin_datos": {
+    "sin productos": 62,
+    "HTTP 404": 1,
+    "sin precios publicados (573 productos)": 1,
+    "JSONDecodeError: Expecting value: line 1": 1,
+    "sin precios publicados (611 productos)": 1
+  },
+  "seg_total": 1007.4
+}
