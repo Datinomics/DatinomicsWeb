@@ -34,7 +34,7 @@ OVERPASS = ["https://overpass-api.de/api/interpreter",
             "https://overpass.kumi.systems/api/interpreter"]
 load_dotenv()
 CONTACT_EMAIL = os.environ.get("SCRAPER_CONTACT_EMAIL", "")
-
+HEADERS = {"User-Agent": f"empresas-ar-crawler/1.2 (contacto: {CONTACT_EMAIL})"}
 # Ciudades de referencia por provincia (para asignar localidad y contexto de busqueda)
 CIUDADES = {
     "Corrientes": [
